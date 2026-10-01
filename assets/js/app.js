@@ -1,16 +1,17 @@
 /**
  * HỆ THỐNG WEBQUEST LỊCH SỬ VÀ ĐỊA LÍ 5 - TRƯỜNG TIỂU HỌC TRUNG NHỨT
- * KIẾN TRÚC MỞ - LƯU TRỮ ONLINE - NỘP BÀI SIÊU TỐI GIẢN (CAMERA & MICRO)
+ * QUẢN TRỊ TOÀN DIỆN: ĐẦU TRANG, CHÂN TRANG, CHỦ ĐỀ, NHÓM HỌC SINH & BẢO MẬT
  */
 
 // Trạng thái ứng dụng
 const AppState = {
+  siteConfig: null,
   topics: [],
   submissions: [],
   currentTopicId: null,
   currentStep: 'introduction',
   activeView: 'portal', // 'portal' | 'topic' | 'submission' | 'showcase'
-  adminPin: '5A2TN',
+  activeAdminTab: 'general', // 'general' | 'topics' | 'groups' | 'security'
   isAdminAuthenticated: false,
   
   // Media streams
@@ -26,36 +27,112 @@ const AppState = {
 // Khởi chạy khi tài liệu tải xong
 document.addEventListener('DOMContentLoaded', async () => {
   await loadInitialData();
+  applySiteConfigToUI();
   setupEventListeners();
   renderApp();
   initConfettiCanvas();
 });
 
-// Tải dữ liệu ban đầu (Ưu tiên LocalStorage, fallback sang tệp JSON tĩnh)
+// Tải dữ liệu ban đầu
 async function loadInitialData() {
   try {
-    // 1. Tải danh mục chủ đề
+    // 1. Tải cấu hình trang web (Site Config)
+    const savedConfig = localStorage.getItem('webquest_site_config_v1');
+    if (savedConfig) {
+      AppState.siteConfig = JSON.parse(savedConfig);
+    } else {
+      const resConfig = await fetch('data/site_config.json');
+      AppState.siteConfig = await resConfig.json();
+      localStorage.setItem('webquest_site_config_v1', JSON.stringify(AppState.siteConfig));
+    }
+
+    // 2. Tải danh mục chủ đề (Topics)
     const savedTopics = localStorage.getItem('webquest_topics_v1');
     if (savedTopics) {
       AppState.topics = JSON.parse(savedTopics);
     } else {
-      const res = await fetch('data/topics.json');
-      AppState.topics = await res.json();
+      const resTopics = await fetch('data/topics.json');
+      AppState.topics = await resTopics.json();
       localStorage.setItem('webquest_topics_v1', JSON.stringify(AppState.topics));
     }
 
-    // 2. Tải bài nộp của học sinh
+    // 3. Tải bài nộp của học sinh (Submissions)
     const savedSubs = localStorage.getItem('webquest_submissions_v1');
     if (savedSubs) {
       AppState.submissions = JSON.parse(savedSubs);
     } else {
-      const res = await fetch('data/submissions.json');
-      AppState.submissions = await res.json();
+      const resSubs = await fetch('data/submissions.json');
+      AppState.submissions = await resSubs.json();
       localStorage.setItem('webquest_submissions_v1', JSON.stringify(AppState.submissions));
     }
   } catch (err) {
-    console.error('Lỗi tải dữ liệu, sử dụng bộ nhớ đệm:', err);
+    console.error('Lỗi khi nạp dữ liệu:', err);
   }
+}
+
+// Áp dụng dữ liệu cấu hình lên toàn bộ giao diện (Đầu trang, Hero, Thống kê, Chân trang)
+function applySiteConfigToUI() {
+  if (!AppState.siteConfig) return;
+  const cfg = AppState.siteConfig;
+
+  // Header & Title
+  const pageTitle = document.getElementById('ui-page-title');
+  if (pageTitle) pageTitle.innerText = `${cfg.header.siteTitle} - ${cfg.header.schoolName}`;
+  const headerClass = document.getElementById('ui-header-class');
+  if (headerClass) headerClass.innerText = cfg.header.classBadge;
+  const headerSchool = document.getElementById('ui-header-school');
+  if (headerSchool) headerSchool.innerText = cfg.header.schoolName;
+  const headerTitle = document.getElementById('ui-header-title');
+  if (headerTitle) headerTitle.innerText = cfg.header.siteTitle;
+
+  // Hero Banner
+  const heroTagline = document.getElementById('ui-hero-tagline');
+  if (heroTagline) heroTagline.innerText = cfg.hero.tagline;
+  const heroHeading = document.getElementById('ui-hero-heading');
+  if (heroHeading) heroHeading.innerText = cfg.hero.mainHeading;
+  const heroDesc = document.getElementById('ui-hero-desc');
+  if (heroDesc) heroDesc.innerText = cfg.hero.description;
+  const heroBtnPrimary = document.getElementById('ui-hero-btn-primary');
+  if (heroBtnPrimary) heroBtnPrimary.innerText = cfg.hero.primaryBtnText;
+  const heroBtnSecondary = document.getElementById('ui-hero-btn-secondary');
+  if (heroBtnSecondary) heroBtnSecondary.innerText = cfg.hero.secondaryBtnText;
+
+  // Stats Grid
+  const statsGrid = document.getElementById('ui-stats-grid');
+  if (statsGrid && cfg.stats) {
+    statsGrid.innerHTML = cfg.stats.map(s => `
+      <div class="card p-4 text-center">
+        <div class="text-3xl font-extrabold ${s.color || 'text-slate-800'} mb-1">${s.value}</div>
+        <div class="text-xs font-bold text-slate-500 uppercase tracking-wider">${s.label}</div>
+      </div>
+    `).join('');
+  }
+
+  // Guide
+  if (cfg.guide) {
+    const guideHeading = document.getElementById('ui-guide-heading');
+    if (guideHeading) guideHeading.innerText = cfg.guide.heading;
+    const g1Title = document.getElementById('ui-guide-step1-title');
+    if (g1Title) g1Title.innerText = cfg.guide.step1Title;
+    const g1Desc = document.getElementById('ui-guide-step1-desc');
+    if (g1Desc) g1Desc.innerText = cfg.guide.step1Desc;
+    const g2Title = document.getElementById('ui-guide-step2-title');
+    if (g2Title) g2Title.innerText = cfg.guide.step2Title;
+    const g2Desc = document.getElementById('ui-guide-step2-desc');
+    if (g2Desc) g2Desc.innerText = cfg.guide.step2Desc;
+    const g3Title = document.getElementById('ui-guide-step3-title');
+    if (g3Title) g3Title.innerText = cfg.guide.step3Title;
+    const g3Desc = document.getElementById('ui-guide-step3-desc');
+    if (g3Desc) g3Desc.innerText = cfg.guide.step3Desc;
+  }
+
+  // Footer
+  const footerOrg = document.getElementById('ui-footer-org');
+  if (footerOrg) footerOrg.innerText = cfg.footer.orgName;
+  const footerInfo = document.getElementById('ui-footer-info');
+  if (footerInfo) footerInfo.innerText = cfg.footer.initiativeInfo;
+  const footerCopyright = document.getElementById('ui-footer-copyright');
+  if (footerCopyright) footerCopyright.innerText = cfg.footer.copyright;
 }
 
 // Thiết lập các sự kiện điều hướng chung
@@ -145,12 +222,10 @@ function renderApp() {
   const submissionView = document.getElementById('view-submission');
   const showcaseView = document.getElementById('view-showcase');
 
-  // Ẩn tất cả các view
   [portalView, topicView, submissionView, showcaseView].forEach(v => {
     if (v) v.classList.add('hidden');
   });
 
-  // Hiển thị view tương ứng
   if (AppState.activeView === 'portal') {
     portalView.classList.remove('hidden');
     renderPortal();
@@ -165,7 +240,6 @@ function renderApp() {
     renderShowcaseGallery();
   }
 
-  // Cập nhật biểu tượng và ngữ cảnh Trợ lý AI theo chủ đề
   updateAiFloatingButton();
 }
 
@@ -220,10 +294,8 @@ function renderTopicDetail() {
   const tabsContainer = document.getElementById('topic-tabs-nav');
   const stepContentContainer = document.getElementById('topic-step-content');
 
-  // Đổi biến CSS màu chủ đề cho trang
   document.documentElement.style.setProperty('--active-theme-color', topic.themeColor);
 
-  // 1. Header chủ đề
   header.innerHTML = `
     <div class="p-6 md:p-8 rounded-2xl mb-8" style="background-color: ${topic.bgColor}; border: 1px solid ${topic.themeColor}30;">
       <div class="flex flex-wrap items-center justify-between gap-4 mb-3">
@@ -245,7 +317,6 @@ function renderTopicDetail() {
     </div>
   `;
 
-  // 2. Thanh tab 6 bước WebQuest
   const stepsConfig = [
     { key: 'introduction', label: '1. Mở đầu', icon: '📖' },
     { key: 'task', label: '2. Nhiệm vụ', icon: '🎯' },
@@ -262,13 +333,11 @@ function renderTopicDetail() {
     </button>
   `).join('');
 
-  // 3. Nội dung của bước đang chọn
   renderCurrentStepContent(topic, stepContentContainer);
 }
 
 function switchWebQuestStep(stepKey) {
   AppState.currentStep = stepKey;
-  const topic = AppState.topics.find(t => t.id === AppState.currentTopicId);
   renderTopicDetail();
 }
 
@@ -303,7 +372,7 @@ function renderCurrentStepContent(topic, container) {
         <h2 class="text-2xl font-bold mb-2 text-slate-900">${step.heading}</h2>
         <p class="text-slate-600 mb-6">${step.content}</p>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          ${step.groups.map((grp, idx) => `
+          ${step.groups ? step.groups.map((grp, idx) => `
             <div class="p-5 rounded-xl border border-slate-200 bg-slate-50 flex flex-col justify-between">
               <div>
                 <span class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1 block">Nhiệm vụ ${idx+1}</span>
@@ -315,7 +384,7 @@ function renderCurrentStepContent(topic, container) {
                 ${grp.deliverable}
               </div>
             </div>
-          `).join('')}
+          `).join('') : ''}
         </div>
         <div class="flex justify-between items-center">
           <button onclick="switchWebQuestStep('introduction')" class="btn btn-secondary">⬅ Quay lại</button>
@@ -330,7 +399,7 @@ function renderCurrentStepContent(topic, container) {
       html += `
         <h2 class="text-2xl font-bold mb-6 text-slate-900">${step.heading}</h2>
         <div class="space-y-4 mb-8">
-          ${step.stages.map((stg, i) => `
+          ${step.stages ? step.stages.map((stg, i) => `
             <div class="flex items-start gap-4 p-4 rounded-xl border border-slate-200 bg-white">
               <div class="w-8 h-8 rounded-full flex items-center justify-center font-bold text-white shrink-0" style="background-color: ${topic.themeColor};">
                 ${i+1}
@@ -340,7 +409,7 @@ function renderCurrentStepContent(topic, container) {
                 <p class="text-sm text-slate-600">${stg.desc}</p>
               </div>
             </div>
-          `).join('')}
+          `).join('') : ''}
         </div>
         <div class="flex justify-between items-center">
           <button onclick="switchWebQuestStep('task')" class="btn btn-secondary">⬅ Quay lại</button>
@@ -355,7 +424,7 @@ function renderCurrentStepContent(topic, container) {
       html += `
         <h2 class="text-2xl font-bold mb-6 text-slate-900">${step.heading}</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-          ${step.items.map(res => `
+          ${step.items ? step.items.map(res => `
             <div class="p-5 rounded-xl border border-slate-200 hover:border-slate-300 transition-all bg-white">
               <span class="badge text-xs mb-2" style="background-color: ${topic.bgColor}; color: ${topic.themeColor};">
                 ${res.tag}
@@ -366,7 +435,7 @@ function renderCurrentStepContent(topic, container) {
                 Tài liệu đã xác thực an toàn ✓
               </div>
             </div>
-          `).join('')}
+          `).join('') : ''}
         </div>
         <div class="flex justify-between items-center">
           <button onclick="switchWebQuestStep('process')" class="btn btn-secondary">⬅ Quay lại</button>
@@ -392,14 +461,14 @@ function renderCurrentStepContent(topic, container) {
               </tr>
             </thead>
             <tbody>
-              ${step.criteria.map(c => `
+              ${step.criteria ? step.criteria.map(c => `
                 <tr>
                   <td class="p-3 border border-slate-200 font-bold text-slate-800">${c.name}</td>
                   <td class="p-3 border border-slate-200 text-slate-700">${c.good}</td>
                   <td class="p-3 border border-slate-200 text-slate-700">${c.medium}</td>
                   <td class="p-3 border border-slate-200 text-slate-600">${c.poor}</td>
                 </tr>
-              `).join('')}
+              `).join('') : ''}
             </tbody>
           </table>
         </div>
@@ -473,7 +542,7 @@ function renderSubmissionForm() {
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-3" id="group-select-cards">
               ${renderGroupCards()}
             </div>
-            <input type="hidden" id="sub-group-name" value="Nhóm 1: Rồng Vàng">
+            <input type="hidden" id="sub-group-name" value="${AppState.siteConfig.groups[0]?.name || 'Nhóm 1'}">
           </div>
 
           <!-- 3. Tên thành viên (tuỳ chọn) -->
@@ -577,11 +646,11 @@ function renderSubmissionForm() {
 }
 
 function renderGroupCards() {
-  const groups = [
-    { name: 'Nhóm 1: Rồng Vàng', icon: '🐉', color: '#B45309' },
-    { name: 'Nhóm 2: Khảo Cổ Nhí', icon: '🏺', color: '#78350F' },
-    { name: 'Nhóm 3: Sao Vuông', icon: '⭐', color: '#991B1B' },
-    { name: 'Nhóm 4: Trái Đất', icon: '🌱', color: '#166534' }
+  const groups = AppState.siteConfig.groups || [
+    { name: 'Nhóm 1: Rồng Vàng', icon: '🐉' },
+    { name: 'Nhóm 2: Khảo Cổ Nhí', icon: '🏺' },
+    { name: 'Nhóm 3: Sao Vuông', icon: '⭐' },
+    { name: 'Nhóm 4: Trái Đất', icon: '🌱' }
   ];
 
   return groups.map((g, idx) => `
@@ -609,7 +678,6 @@ function switchSubMode(mode) {
   });
   document.getElementById(`sub-mode-${mode}`).classList.remove('hidden');
 
-  // Đổi trạng thái tab
   document.querySelectorAll('.sub-tab-btn').forEach(btn => {
     btn.classList.remove('bg-white', 'shadow-sm', 'text-slate-900');
     btn.classList.add('text-slate-600');
@@ -631,7 +699,7 @@ async function startCamera() {
     document.getElementById('btn-start-camera').classList.add('hidden');
     document.getElementById('btn-take-photo').classList.remove('hidden');
   } catch (err) {
-    alert('Không thể mở camera. Vui lòng cho phép quyền truy cập máy ảnh hoặc chuyển sang chế độ nộp bằng văn bản/link.');
+    alert('Không thể mở camera. Vui lòng cấp quyền camera trên trình duyệt hoặc chuyển sang nộp bài bằng câu trả lời/link.');
   }
 }
 
@@ -694,7 +762,6 @@ async function startAudioRecording() {
     document.getElementById('recorder-idle').classList.add('hidden');
     document.getElementById('recorder-active').classList.remove('hidden');
 
-    // Bộ đếm thời gian
     AppState.recordSeconds = 0;
     AppState.recordTimerInterval = setInterval(() => {
       AppState.recordSeconds++;
@@ -762,13 +829,8 @@ function handleStudentSubmit(e) {
   AppState.submissions.unshift(newSubmission);
   localStorage.setItem('webquest_submissions_v1', JSON.stringify(AppState.submissions));
 
-  // Bắn pháo hoa Confetti chúc mừng
   fireConfetti();
-
-  // Thông báo chúc mừng
   alert(`🎉 CHÚC MỪNG ${groupName.toUpperCase()}!\nBài làm của các em đã được gửi thành công lên hệ thống WebQuest. Thầy cô sẽ xem và nhận xét ngay!`);
-
-  // Chuyển sang bảng vinh danh
   navigateTo('showcase');
 }
 
@@ -792,7 +854,6 @@ function renderShowcaseGallery() {
         <h4 class="font-bold text-slate-900 text-lg mb-1">${sub.title}</h4>
         <p class="text-xs font-semibold text-slate-500 mb-3">${sub.topicTitle}</p>
 
-        <!-- Khung hiển thị media nộp bài -->
         ${sub.type === 'image' && sub.mediaUrl ? `
           <div class="rounded-xl overflow-hidden mb-3 max-h-48 border border-slate-200">
             <img src="${sub.mediaUrl}" alt="Bài nộp" class="w-full h-full object-cover">
@@ -810,7 +871,6 @@ function renderShowcaseGallery() {
         </p>
       </div>
 
-      <!-- Phản hồi của Giáo viên -->
       <div class="pt-3 border-t border-slate-100">
         <div class="flex items-center justify-between mb-2">
           <span class="badge bg-amber-50 text-amber-800 border-amber-200 text-xs">
@@ -856,8 +916,7 @@ function renderAiChatWelcome() {
     </div>
   `;
 
-  // Render câu hỏi gợi ý nhanh
-  quickPromptsBox.innerHTML = currentTopic.aiPersona.quickPrompts.map(p => `
+  quickPromptsBox.innerHTML = (currentTopic.aiPersona.quickPrompts || []).map(p => `
     <button type="button" onclick="handleSendAiMessage('${p}')" class="text-xs text-left p-2 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200 transition-colors w-full">
       💡 ${p}
     </button>
@@ -870,7 +929,6 @@ function handleSendAiMessage(msgText) {
   const messagesBox = document.getElementById('ai-messages-container');
   const inputAi = document.getElementById('input-ai-msg');
 
-  // Tin nhắn của học sinh
   messagesBox.innerHTML += `
     <div class="flex justify-end">
       <div class="p-3 bg-slate-800 text-white text-sm rounded-2xl rounded-tr-none max-w-[85%] leading-relaxed">
@@ -881,9 +939,8 @@ function handleSendAiMessage(msgText) {
   if (inputAi) inputAi.value = '';
   messagesBox.scrollTop = messagesBox.scrollHeight;
 
-  // Mô phỏng câu trả lời sư phạm của Trợ lý AI (Gợi mở tư duy, không đưa đáp án sẵn)
   setTimeout(() => {
-    let aiReply = `Câu hỏi rất hay của nhà thám hiểm nhí! Để tìm câu trả lời chính xác nhất, em hãy mở mục "4. Tài nguyên" của ${currentTopic.number}, đọc kỹ phần tư liệu SGK và liên hệ với thực tế nhé! Nếu vẫn chưa rõ, hãy thảo luận cùng bạn bè trong nhóm xem sao nào!`;
+    let aiReply = `Câu hỏi rất hay của nhà thám hiểm nhí! Để tìm câu trả lời chính xác nhất, em hãy mở mục "4. Tài nguyên" của ${currentTopic.number}, đọc kỹ phần tư liệu SGK và liên hệ với thực tế nhé!`;
 
     if (msgText.includes('Phù Nam') || msgText.includes('Óc Eo')) {
       aiReply = 'Cư dân Phù Nam xưa sống trên vùng đất sông nước Nam Bộ trù phú, gần biển lớn nên rất thuận lợi cho tàu buôn quốc tế ghé thăm. Em hãy quan sát các trang sức bằng vàng và bình gốm Óc Eo ở mục Tài nguyên để thấy sự khéo léo của tổ tiên mình nhé!';
@@ -906,7 +963,7 @@ function handleSendAiMessage(msgText) {
 }
 
 // -------------------------------------------------------------
-// 6. PHÂN HỆ CÀI ĐẶT TRỰC TUYẾN DÀNH CHO GIÁO VIÊN (ADMIN STUDIO)
+// 6. PHÂN HỆ CÀI ĐẶT TOÀN DIỆN CHO GIÁO VIÊN (ADMIN STUDIO)
 // -------------------------------------------------------------
 function handleOpenAdminModal() {
   const modal = document.getElementById('admin-modal');
@@ -918,27 +975,88 @@ function handleOpenAdminModal() {
   } else {
     document.getElementById('admin-auth-panel').classList.add('hidden');
     document.getElementById('admin-studio-panel').classList.remove('hidden');
-    renderAdminTopicsList();
+    populateAdminFields();
   }
 }
 
+// Xác thực PIN - TUYỆT ĐỐI KHÔNG HIỂN THỊ MÃ PIN TRÊN GIAO DIỆN
 function verifyAdminPin() {
   const pinInput = document.getElementById('admin-pin-input');
-  if (pinInput.value === AppState.adminPin) {
+  const validPin = AppState.siteConfig?.adminPin || '5A2TN';
+
+  if (pinInput.value === validPin) {
     AppState.isAdminAuthenticated = true;
     document.getElementById('admin-auth-panel').classList.add('hidden');
     document.getElementById('admin-studio-panel').classList.remove('hidden');
-    renderAdminTopicsList();
+    populateAdminFields();
   } else {
-    alert('Mã PIN không đúng! Vui lòng thử lại (Mã mặc định: 5A2TN)');
+    alert('Mã PIN không đúng! Vui lòng kiểm tra lại.');
   }
 }
 
+function switchAdminTab(tabKey) {
+  AppState.activeAdminTab = tabKey;
+  const tabs = ['general', 'topics', 'groups', 'security'];
+  tabs.forEach(t => {
+    document.getElementById(`admin-tab-${t}`).classList.add('hidden');
+  });
+  document.getElementById(`admin-tab-${tabKey}`).classList.remove('hidden');
+
+  // Đổi trạng thái tab button
+  document.querySelectorAll('.admin-tab-btn').forEach(btn => {
+    btn.classList.remove('active', 'font-bold', 'text-slate-900', 'border-b-2', 'border-slate-800');
+    btn.classList.add('text-slate-500');
+  });
+  event.currentTarget.classList.add('active', 'font-bold', 'text-slate-900', 'border-b-2', 'border-slate-800');
+  event.currentTarget.classList.remove('text-slate-500');
+}
+
+function populateAdminFields() {
+  const cfg = AppState.siteConfig;
+  if (!cfg) return;
+
+  // Tab 1: General fields
+  document.getElementById('cfg-class-badge').value = cfg.header.classBadge || '5A2';
+  document.getElementById('cfg-school-name').value = cfg.header.schoolName || '';
+  document.getElementById('cfg-site-title').value = cfg.header.siteTitle || '';
+  document.getElementById('cfg-hero-tagline').value = cfg.hero.tagline || '';
+  document.getElementById('cfg-hero-heading').value = cfg.hero.mainHeading || '';
+  document.getElementById('cfg-hero-desc').value = cfg.hero.description || '';
+  document.getElementById('cfg-footer-org').value = cfg.footer.orgName || '';
+  document.getElementById('cfg-footer-info').value = cfg.footer.initiativeInfo || '';
+  document.getElementById('cfg-footer-copyright').value = cfg.footer.copyright || '';
+
+  // Tab 2: Topics list
+  renderAdminTopicsList();
+
+  // Tab 3: Groups fields
+  renderAdminGroupsInputs();
+}
+
+// Lưu Tab 1: Cấu hình chung
+function saveGeneralConfig(e) {
+  e.preventDefault();
+  AppState.siteConfig.header.classBadge = document.getElementById('cfg-class-badge').value;
+  AppState.siteConfig.header.schoolName = document.getElementById('cfg-school-name').value;
+  AppState.siteConfig.header.siteTitle = document.getElementById('cfg-site-title').value;
+  AppState.siteConfig.hero.tagline = document.getElementById('cfg-hero-tagline').value;
+  AppState.siteConfig.hero.mainHeading = document.getElementById('cfg-hero-heading').value;
+  AppState.siteConfig.hero.description = document.getElementById('cfg-hero-desc').value;
+  AppState.siteConfig.footer.orgName = document.getElementById('cfg-footer-org').value;
+  AppState.siteConfig.footer.initiativeInfo = document.getElementById('cfg-footer-info').value;
+  AppState.siteConfig.footer.copyright = document.getElementById('cfg-footer-copyright').value;
+
+  localStorage.setItem('webquest_site_config_v1', JSON.stringify(AppState.siteConfig));
+  applySiteConfigToUI();
+  alert('✓ ĐÃ CẬP NHẬT ĐẦU TRANG & CHÂN TRANG THÀNH CÔNG!');
+}
+
+// Tab 2: Quản lý Topics
 function renderAdminTopicsList() {
   const container = document.getElementById('admin-topics-list');
   if (!container) return;
 
-  container.innerHTML = AppState.topics.map((t, idx) => `
+  container.innerHTML = AppState.topics.map(t => `
     <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-between">
       <div>
         <span class="font-bold text-slate-800 block">${t.number}: ${t.title}</span>
@@ -956,16 +1074,49 @@ function renderAdminTopicsList() {
   `).join('');
 }
 
+function openAddNewTopicForm() {
+  const newId = 'topic-' + Date.now();
+  document.getElementById('admin-edit-topic-id').value = newId;
+  document.getElementById('admin-topic-form-title').innerText = 'Thêm chủ đề WebQuest mới:';
+  document.getElementById('admin-edit-number').value = `Chủ đề ${AppState.topics.length + 1}`;
+  document.getElementById('admin-edit-title').value = '';
+  document.getElementById('admin-edit-color').value = '#2E4057';
+  document.getElementById('admin-edit-subtitle').value = '';
+  document.getElementById('admin-edit-intro').value = '';
+  document.getElementById('admin-edit-quote').value = '';
+  document.getElementById('admin-edit-task-desc').value = '';
+  document.getElementById('admin-edit-conclusion').value = '';
+  document.getElementById('admin-edit-badge').value = 'Huy hiệu: Nhà Khám Phá Mới';
+  document.getElementById('admin-edit-botavatar').value = '🤖';
+  document.getElementById('admin-edit-botname').value = 'Trợ lý AI';
+  document.getElementById('admin-edit-botrole').value = 'Hướng dẫn viên học tập';
+  document.getElementById('admin-edit-botwelcome').value = 'Chào các em, thầy cô đã sẵn sàng hỗ trợ các em!';
+  document.getElementById('admin-edit-botprompt').value = 'Bạn là Trợ lý AI hỗ trợ học sinh tiểu học giải quyết vấn đề...';
+
+  document.getElementById('admin-edit-form-box').classList.remove('hidden');
+  document.getElementById('admin-edit-form-box').scrollIntoView({ behavior: 'smooth' });
+}
+
 function editTopicInAdmin(topicId) {
   const topic = AppState.topics.find(t => t.id === topicId);
   if (!topic) return;
 
-  document.getElementById('admin-edit-title').value = topic.title;
-  document.getElementById('admin-edit-subtitle').value = topic.subtitle;
-  document.getElementById('admin-edit-intro').value = topic.steps.introduction.content;
-  document.getElementById('admin-edit-botname').value = topic.aiPersona.name;
-  document.getElementById('admin-edit-botprompt').value = topic.aiPersona.systemPrompt;
   document.getElementById('admin-edit-topic-id').value = topic.id;
+  document.getElementById('admin-topic-form-title').innerText = `Chỉnh sửa: ${topic.number}`;
+  document.getElementById('admin-edit-number').value = topic.number || '';
+  document.getElementById('admin-edit-title').value = topic.title || '';
+  document.getElementById('admin-edit-color').value = topic.themeColor || '#2E4057';
+  document.getElementById('admin-edit-subtitle').value = topic.subtitle || '';
+  document.getElementById('admin-edit-intro').value = topic.steps?.introduction?.content || '';
+  document.getElementById('admin-edit-quote').value = topic.steps?.introduction?.quote || '';
+  document.getElementById('admin-edit-task-desc').value = topic.steps?.task?.content || '';
+  document.getElementById('admin-edit-conclusion').value = topic.steps?.conclusion?.content || '';
+  document.getElementById('admin-edit-badge').value = topic.steps?.conclusion?.badge || '';
+  document.getElementById('admin-edit-botavatar').value = topic.aiPersona?.avatar || '🏺';
+  document.getElementById('admin-edit-botname').value = topic.aiPersona?.name || '';
+  document.getElementById('admin-edit-botrole').value = topic.aiPersona?.role || '';
+  document.getElementById('admin-edit-botwelcome').value = topic.aiPersona?.welcomeMsg || '';
+  document.getElementById('admin-edit-botprompt').value = topic.aiPersona?.systemPrompt || '';
 
   document.getElementById('admin-edit-form-box').classList.remove('hidden');
   document.getElementById('admin-edit-form-box').scrollIntoView({ behavior: 'smooth' });
@@ -974,19 +1125,53 @@ function editTopicInAdmin(topicId) {
 function saveTopicFromAdmin(e) {
   e.preventDefault();
   const topicId = document.getElementById('admin-edit-topic-id').value;
-  const topic = AppState.topics.find(t => t.id === topicId);
-  if (!topic) return;
+  let topic = AppState.topics.find(t => t.id === topicId);
 
+  const isNew = !topic;
+  if (isNew) {
+    topic = {
+      id: topicId,
+      badge: "Lịch sử & Địa lí 5",
+      bgColor: "#FAF5F0",
+      accentColor: "#9C7249",
+      textColor: "#1E293B",
+      steps: {
+        introduction: {},
+        task: { groups: [] },
+        process: { stages: [] },
+        resources: { items: [] },
+        evaluation: { criteria: [] },
+        conclusion: {}
+      },
+      aiPersona: {}
+    };
+    AppState.topics.push(topic);
+  }
+
+  topic.number = document.getElementById('admin-edit-number').value;
   topic.title = document.getElementById('admin-edit-title').value;
+  topic.themeColor = document.getElementById('admin-edit-color').value;
   topic.subtitle = document.getElementById('admin-edit-subtitle').value;
+
+  topic.steps.introduction.heading = "Lời mở đầu";
   topic.steps.introduction.content = document.getElementById('admin-edit-intro').value;
+  topic.steps.introduction.quote = document.getElementById('admin-edit-quote').value;
+
+  topic.steps.task.heading = "Nhiệm vụ học tập";
+  topic.steps.task.content = document.getElementById('admin-edit-task-desc').value;
+
+  topic.steps.conclusion.heading = "Kết luận & Thông điệp";
+  topic.steps.conclusion.content = document.getElementById('admin-edit-conclusion').value;
+  topic.steps.conclusion.badge = document.getElementById('admin-edit-badge').value;
+
+  topic.aiPersona.avatar = document.getElementById('admin-edit-botavatar').value;
   topic.aiPersona.name = document.getElementById('admin-edit-botname').value;
+  topic.aiPersona.role = document.getElementById('admin-edit-botrole').value;
+  topic.aiPersona.welcomeMsg = document.getElementById('admin-edit-botwelcome').value;
   topic.aiPersona.systemPrompt = document.getElementById('admin-edit-botprompt').value;
 
-  // Lưu vào LocalStorage
   localStorage.setItem('webquest_topics_v1', JSON.stringify(AppState.topics));
-
-  alert('✓ ĐÃ LƯU THÀNH CÔNG!\nNội dung bài học đã được cập nhật trực tuyến tức thì.');
+  alert('✓ ĐÃ LƯU BÀI HỌC THÀNH CÔNG!');
   document.getElementById('admin-edit-form-box').classList.add('hidden');
   renderAdminTopicsList();
   renderApp();
@@ -1001,24 +1186,76 @@ function deleteTopicInAdmin(topicId) {
   }
 }
 
+// Tab 3: Nhóm học sinh
+function renderAdminGroupsInputs() {
+  const container = document.getElementById('admin-groups-inputs');
+  if (!container) return;
+
+  const groups = AppState.siteConfig.groups || [];
+  container.innerHTML = groups.map((g, idx) => `
+    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 flex items-center gap-2">
+      <input type="text" id="cfg-grp-icon-${idx}" value="${g.icon}" class="w-12 text-center p-2 rounded-lg border border-slate-300 text-lg">
+      <input type="text" id="cfg-grp-name-${idx}" value="${g.name}" class="flex-1 p-2 rounded-lg border border-slate-300 text-sm font-semibold">
+    </div>
+  `).join('');
+}
+
+function saveGroupsConfig(e) {
+  e.preventDefault();
+  const groups = AppState.siteConfig.groups || [];
+  groups.forEach((g, idx) => {
+    const iconInput = document.getElementById(`cfg-grp-icon-${idx}`);
+    const nameInput = document.getElementById(`cfg-grp-name-${idx}`);
+    if (iconInput && nameInput) {
+      g.icon = iconInput.value;
+      g.name = nameInput.value;
+    }
+  });
+
+  localStorage.setItem('webquest_site_config_v1', JSON.stringify(AppState.siteConfig));
+  alert('✓ ĐÃ CẬP NHẬT DANH SÁCH NHÓM THÀNH CÔNG!');
+  renderApp();
+}
+
+// Tab 4: Đổi mã PIN & Sao lưu
+function changeAdminPin() {
+  const newPin = document.getElementById('cfg-new-pin').value;
+  if (!newPin || newPin.trim().length < 4) {
+    alert('Mã PIN mới phải có ít nhất 4 ký tự!');
+    return;
+  }
+  AppState.siteConfig.adminPin = newPin.trim();
+  localStorage.setItem('webquest_site_config_v1', JSON.stringify(AppState.siteConfig));
+  alert(`✓ ĐỔI MÃ PIN THÀNH CÔNG!\nMã PIN mới của Thầy/Cô là: ${AppState.siteConfig.adminPin}`);
+  document.getElementById('cfg-new-pin').value = '';
+}
+
 function exportTopicsJson() {
   const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(AppState.topics, null, 2));
-  const downloadAnchor = document.createElement('a');
-  downloadAnchor.setAttribute("href", dataStr);
-  downloadAnchor.setAttribute("download", "topics.json");
-  document.body.appendChild(downloadAnchor);
-  downloadAnchor.click();
-  downloadAnchor.remove();
+  const a = document.createElement('a');
+  a.setAttribute("href", dataStr);
+  a.setAttribute("download", "topics.json");
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+}
+
+function exportSiteConfigJson() {
+  const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(AppState.siteConfig, null, 2));
+  const a = document.createElement('a');
+  a.setAttribute("href", dataStr);
+  a.setAttribute("download", "site_config.json");
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
 }
 
 function resetToFactoryDefault() {
-  if (confirm('Thầy/Cô có muốn khôi phục lại 4 chủ đề chuẩn ban đầu theo SGK không?')) {
+  if (confirm('Thầy/Cô có muốn khôi phục lại toàn bộ dữ liệu gốc của website theo SGK không?')) {
     localStorage.removeItem('webquest_topics_v1');
-    loadInitialData().then(() => {
-      alert('✓ Đã khôi phục dữ liệu gốc thành công!');
-      renderAdminTopicsList();
-      renderApp();
-    });
+    localStorage.removeItem('webquest_site_config_v1');
+    localStorage.removeItem('webquest_submissions_v1');
+    location.reload();
   }
 }
 

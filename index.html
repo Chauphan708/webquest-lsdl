@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WebQuest Lịch sử và Địa lí 5 - Trường Tiểu học Trung Nhứt</title>
+  <title id="ui-page-title">WebQuest Lịch sử và Địa lí 5 - Trường Tiểu học Trung Nhứt</title>
   
   <!-- Phông chữ tiếng Việt chuẩn Be Vietnam Pro -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,12 +27,12 @@
         
         <!-- Logo & Tên trường -->
         <div class="flex items-center gap-3 cursor-pointer" onclick="navigateTo('portal')">
-          <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-slate-800 text-white flex items-center justify-center font-bold text-lg md:text-xl shadow-sm">
+          <div id="ui-header-class" class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-slate-800 text-white flex items-center justify-center font-bold text-lg md:text-xl shadow-sm">
             5A2
           </div>
           <div>
-            <div class="text-xs uppercase tracking-wider font-bold text-slate-500">Trường Tiểu học Trung Nhứt</div>
-            <div class="text-base md:text-lg font-extrabold text-slate-900 leading-tight">WebQuest Lịch sử & Địa lí 5</div>
+            <div id="ui-header-school" class="text-xs uppercase tracking-wider font-bold text-slate-500">Trường Tiểu học Trung Nhứt</div>
+            <div id="ui-header-title" class="text-base md:text-lg font-extrabold text-slate-900 leading-tight">WebQuest Lịch sử & Địa lí 5</div>
           </div>
         </div>
 
@@ -70,54 +70,39 @@
     <!-- VIEW 1: TRANG CHỦ / PORTAL -->
     <section id="view-portal" class="space-y-10">
       
-      <!-- Banner giới thiệu dự án -->
+      <!-- Banner giới thiệu dự án (Hero) -->
       <div class="p-8 md:p-12 rounded-3xl bg-slate-800 text-white relative overflow-hidden shadow-md">
         <div class="relative z-10 max-w-3xl space-y-4">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-700/80 text-xs font-semibold text-slate-200">
-            <span>Chương trình GDPT 2018</span> • <span>Lớp 5A2</span> • <span>TP. Cần Thơ</span>
+          <div id="ui-hero-tagline" class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-700/80 text-xs font-semibold text-slate-200">
+            Chương trình GDPT 2018 • Lớp 5A2 • TP. Cần Thơ
           </div>
-          <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
+          <h1 id="ui-hero-heading" class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
             Khám phá Lịch sử & Địa lí cùng WebQuest & Trí tuệ nhân tạo (AI)
           </h1>
-          <p class="text-slate-300 text-base md:text-lg leading-relaxed">
+          <p id="ui-hero-desc" class="text-slate-300 text-base md:text-lg leading-relaxed">
             Chào mừng các em học sinh lớp 5A2 đến với không gian học tập số tương tác! Hãy nhập vai những nhà khảo cổ, phóng viên chiến trường và đại sứ tương lai để giải mã những bí mật ngàn năm và bảo vệ hành tinh xanh.
           </p>
           <div class="flex flex-wrap gap-4 pt-2">
-            <button onclick="navigateTo('topic', 'topic-02-quoc-gia-co')" class="btn btn-primary btn-large bg-amber-700 hover:bg-amber-800 text-white">
+            <button id="ui-hero-btn-primary" onclick="navigateTo('topic', 'topic-02-quoc-gia-co')" class="btn btn-primary btn-large bg-amber-700 hover:bg-amber-800 text-white">
               Bắt đầu khám phá Chủ đề 2 ➔
             </button>
-            <button onclick="navigateTo('submission')" class="btn btn-secondary btn-large bg-white/10 hover:bg-white/20 text-white border-white/20">
+            <button id="ui-hero-btn-secondary" onclick="navigateTo('submission')" class="btn btn-secondary btn-large bg-white/10 hover:bg-white/20 text-white border-white/20">
               📸 Nộp sản phẩm của nhóm
             </button>
           </div>
         </div>
       </div>
 
-      <!-- Chỉ số nổi bật -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="card p-4 text-center">
-          <div class="text-3xl font-extrabold text-slate-800 mb-1">04</div>
-          <div class="text-xs font-bold text-slate-500 uppercase tracking-wider">Chủ đề tích hợp</div>
-        </div>
-        <div class="card p-4 text-center">
-          <div class="text-3xl font-extrabold text-amber-700 mb-1">35</div>
-          <div class="text-xs font-bold text-slate-500 uppercase tracking-wider">Học sinh 5A2</div>
-        </div>
-        <div class="card p-4 text-center">
-          <div class="text-3xl font-extrabold text-emerald-700 mb-1">100%</div>
-          <div class="text-xs font-bold text-slate-500 uppercase tracking-wider">Tài nguyên an toàn</div>
-        </div>
-        <div class="card p-4 text-center">
-          <div class="text-3xl font-extrabold text-blue-700 mb-1">01 Chạm</div>
-          <div class="text-xs font-bold text-slate-500 uppercase tracking-wider">Nộp bài Camera & Mic</div>
-        </div>
+      <!-- Chỉ số nổi bật (Stats Grid) -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="ui-stats-grid">
+        <!-- Render động bởi JS từ siteConfig -->
       </div>
 
       <!-- Danh mục 4 Chủ đề Lịch sử & Địa lí 5 -->
       <div>
         <div class="flex items-center justify-between mb-6">
           <div>
-            <h2 class="text-2xl font-extrabold text-slate-900">4 Không gian WebQuest bài học</h2>
+            <h2 class="text-2xl font-extrabold text-slate-900">Không gian WebQuest bài học</h2>
             <p class="text-sm text-slate-600">Lựa chọn chủ đề em muốn tham gia thám hiểm:</p>
           </div>
         </div>
@@ -127,23 +112,23 @@
       </div>
 
       <!-- Hướng dẫn nộp bài 1 chạm cho học sinh -->
-      <div class="card p-6 md:p-8 bg-slate-100/70 border-slate-200">
-        <h3 class="text-xl font-bold text-slate-900 mb-4 text-center">🌟 3 Bước nộp bài siêu dễ dàng cho học sinh lớp 5</h3>
+      <div class="card p-6 md:p-8 bg-slate-100/70 border-slate-200" id="ui-guide-card">
+        <h3 id="ui-guide-heading" class="text-xl font-bold text-slate-900 mb-4 text-center">🌟 3 Bước nộp bài siêu dễ dàng cho học sinh lớp 5</h3>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-white p-5 rounded-xl border border-slate-200 text-center">
             <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center mx-auto text-2xl mb-3">1️⃣</div>
-            <h4 class="font-bold text-slate-900 mb-1">Chọn nhóm</h4>
-            <p class="text-xs text-slate-600">Nhấp chọn tên nhóm (Rồng Vàng, Sao Vuông...). Không cần nhớ mật khẩu hay email.</p>
+            <h4 id="ui-guide-step1-title" class="font-bold text-slate-900 mb-1">Chọn nhóm</h4>
+            <p id="ui-guide-step1-desc" class="text-xs text-slate-600">Nhấp chọn tên nhóm (Rồng Vàng, Sao Vuông...). Không cần nhớ mật khẩu hay email.</p>
           </div>
           <div class="bg-white p-5 rounded-xl border border-slate-200 text-center">
             <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center mx-auto text-2xl mb-3">2️⃣</div>
-            <h4 class="font-bold text-slate-900 mb-1">Chụp ảnh hoặc Ghi âm</h4>
-            <p class="text-xs text-slate-600">Bấm máy ảnh để chụp vở ghi, hoặc bấm nút đỏ để nói câu trả lời của nhóm em.</p>
+            <h4 id="ui-guide-step2-title" class="font-bold text-slate-900 mb-1">Chụp ảnh hoặc Ghi âm</h4>
+            <p id="ui-guide-step2-desc" class="text-xs text-slate-600">Bấm máy ảnh để chụp vở ghi, hoặc bấm nút đỏ để nói câu trả lời của nhóm em.</p>
           </div>
           <div class="bg-white p-5 rounded-xl border border-slate-200 text-center">
             <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center mx-auto text-2xl mb-3">3️⃣</div>
-            <h4 class="font-bold text-slate-900 mb-1">Nhận huy hiệu</h4>
-            <p class="text-xs text-slate-600">Bấm Gửi bài, ngắm pháo hoa bung nở và xem bài mình trên Bảng Vinh Danh của lớp.</p>
+            <h4 id="ui-guide-step3-title" class="font-bold text-slate-900 mb-1">Nhận huy hiệu</h4>
+            <p id="ui-guide-step3-desc" class="text-xs text-slate-600">Bấm Gửi bài, ngắm pháo hoa bung nở và xem bài mình trên Bảng Vinh Danh của lớp.</p>
           </div>
         </div>
       </div>
@@ -195,18 +180,18 @@
   </main>
 
   <!-- ============================================================== -->
-  <!-- 3. FOOTER TRANG WEB                                            -->
+  <!-- 3. FOOTER TRANG WEB (CHÂN TRANG ĐỘNG)                          -->
   <!-- ============================================================== -->
   <footer class="bg-white border-t border-slate-200 py-8 mt-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs text-slate-500 space-y-2">
-      <p class="font-bold text-slate-700 text-sm">
+      <p id="ui-footer-org" class="font-bold text-slate-700 text-sm">
         TRƯỜNG TIỂU HỌC TRUNG NHỨT - QUẬN THỐT NỐT - THÀNH PHỐ CẦN THƠ
       </p>
-      <p>
+      <p id="ui-footer-info">
         Sản phẩm số thuộc đề tài Sáng kiến kinh nghiệm năm học 2026: 
         <em>"Thiết kế WebQuest với sự hỗ trợ của công cụ AI trong dạy học một số chủ đề Lịch sử và Địa lí..."</em>
       </p>
-      <p class="text-slate-400">
+      <p id="ui-footer-copyright" class="text-slate-400">
         Xây dựng theo kiến trúc mở • Triển khai trên GitHub Pages • Tối ưu hoá cho học sinh lớp 5
       </p>
     </div>
@@ -257,86 +242,238 @@
   </div>
 
   <!-- ============================================================== -->
-  <!-- 5. MODAL BẢNG CÀI ĐẶT DÀNH CHO GIÁO VIÊN (ADMIN STUDIO)        -->
+  <!-- 5. MODAL BẢNG CÀI ĐẶT TOÀN DIỆN CHO GIÁO VIÊN (ADMIN STUDIO)    -->
   <!-- ============================================================== -->
   <div id="admin-modal" class="admin-modal-backdrop hidden">
-    <div class="admin-modal-content">
+    <div class="admin-modal-content max-w-4xl">
       <div class="flex items-center justify-between pb-4 border-b border-slate-200 mb-6">
         <div>
-          <h3 class="text-xl font-extrabold text-slate-900">⚙️ Cài đặt & Quản trị Nội dung Giáo viên</h3>
-          <p class="text-xs text-slate-500">Trường Tiểu học Trung Nhứt - Lớp 5A2</p>
+          <h3 class="text-xl font-extrabold text-slate-900">⚙️ Bảng Cài đặt & Quản trị Nội dung Giáo viên</h3>
+          <p class="text-xs text-slate-500">Tùy biến toàn bộ nội dung: Đầu trang, Chân trang, Chủ đề & Nhóm học sinh</p>
         </div>
         <button id="btn-close-admin" class="text-slate-400 hover:text-slate-700 text-xl font-bold">✕</button>
       </div>
 
-      <!-- 1. Bảng xác thực mã PIN -->
-      <div id="admin-auth-panel" class="text-center py-8 space-y-4 max-w-sm mx-auto">
+      <!-- 1. Bảng xác thực mã PIN (TUYỆT ĐỐI KHÔNG HIỂN THỊ MÃ PIN TRÊN GIAO DIỆN) -->
+      <div id="admin-auth-panel" class="text-center py-10 space-y-4 max-w-sm mx-auto">
         <span class="text-5xl block">🔐</span>
-        <h4 class="font-bold text-slate-800 text-lg">Nhập mã PIN Giáo viên</h4>
-        <p class="text-xs text-slate-500">Mã PIN mặc định: <strong>5A2TN</strong></p>
-        <input type="password" id="admin-pin-input" placeholder="Nhập mã PIN..." class="w-full text-center p-3 rounded-xl border border-slate-300 font-bold text-lg tracking-widest">
-        <button onclick="verifyAdminPin()" class="btn btn-primary w-full" style="background-color: #2E4057;">
+        <h4 class="font-bold text-slate-800 text-lg">Xác thực quyền Giáo viên</h4>
+        <p class="text-xs text-slate-500">Vui lòng nhập mã PIN quản trị để tiếp tục:</p>
+        <input type="password" id="admin-pin-input" placeholder="••••••" class="w-full text-center p-3 rounded-xl border border-slate-300 font-bold text-xl tracking-widest focus:ring-2 focus:ring-slate-800 focus:outline-none">
+        <button onclick="verifyAdminPin()" class="btn btn-primary w-full py-3" style="background-color: #2E4057;">
           Mở khoá Cài đặt
         </button>
       </div>
 
       <!-- 2. Bảng Quản trị Studio khi đã xác thực -->
       <div id="admin-studio-panel" class="hidden space-y-6">
-        <div class="p-3 bg-emerald-50 text-emerald-800 rounded-xl text-xs flex items-center justify-between">
-          <span>🟢 Trạng thái: Đang kết nối Online với bộ nhớ hệ thống</span>
-          <div class="flex gap-2">
-            <button onclick="exportTopicsJson()" class="btn btn-secondary text-xs py-1 px-2.5">
-              📥 Xuất file topics.json
-            </button>
-            <button onclick="resetToFactoryDefault()" class="btn btn-secondary text-xs py-1 px-2.5 text-red-600">
-              🔄 Khôi phục gốc
-            </button>
-          </div>
+        
+        <!-- Thanh Tab chức năng quản trị -->
+        <div class="flex border-b border-slate-200 gap-2 overflow-x-auto">
+          <button type="button" class="admin-tab-btn active font-bold text-slate-900 border-b-2 border-slate-800 pb-2 px-3 text-sm" onclick="switchAdminTab('general')">
+            🏛️ Đầu trang & Chân trang
+          </button>
+          <button type="button" class="admin-tab-btn text-slate-500 pb-2 px-3 text-sm" onclick="switchAdminTab('topics')">
+            📚 Quản lý Chủ đề WebQuest
+          </button>
+          <button type="button" class="admin-tab-btn text-slate-500 pb-2 px-3 text-sm" onclick="switchAdminTab('groups')">
+            👥 Danh sách Nhóm học sinh
+          </button>
+          <button type="button" class="admin-tab-btn text-slate-500 pb-2 px-3 text-sm" onclick="switchAdminTab('security')">
+            🔐 Đổi PIN & Sao lưu dữ liệu
+          </button>
         </div>
 
-        <div>
-          <h4 class="font-bold text-slate-900 mb-3">Danh sách 4 chủ đề hiện tại:</h4>
-          <div class="space-y-3" id="admin-topics-list">
-            <!-- Render danh sách chủ đề -->
-          </div>
-        </div>
+        <!-- TAB 1: CẤU HÌNH ĐẦU TRANG & CHÂN TRANG -->
+        <div id="admin-tab-general" class="space-y-4">
+          <form onsubmit="saveGeneralConfig(event)" class="space-y-4">
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
+              <h5 class="font-bold text-slate-800 text-sm">1. Thông tin Đầu trang (Header):</h5>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-600 mb-1">Khối lớp (Logo):</label>
+                  <input type="text" id="cfg-class-badge" class="w-full p-2.5 rounded-lg border border-slate-300 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-600 mb-1">Tên trường:</label>
+                  <input type="text" id="cfg-school-name" class="w-full p-2.5 rounded-lg border border-slate-300 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-600 mb-1">Tiêu đề chính:</label>
+                  <input type="text" id="cfg-site-title" class="w-full p-2.5 rounded-lg border border-slate-300 text-sm">
+                </div>
+              </div>
+            </div>
 
-        <!-- Form chỉnh sửa bài học -->
-        <div id="admin-edit-form-box" class="hidden p-5 rounded-2xl border border-slate-300 bg-slate-50 space-y-4">
-          <h4 class="font-bold text-slate-900 text-base">Chỉnh sửa nội dung bài học:</h4>
-          <form onsubmit="saveTopicFromAdmin(event)" class="space-y-3">
-            <input type="hidden" id="admin-edit-topic-id">
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">Tên chủ đề:</label>
-              <input type="text" id="admin-edit-title" class="w-full p-2.5 rounded-lg border border-slate-300 text-sm font-semibold">
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">Tiêu đề phụ / Slogan:</label>
-              <input type="text" id="admin-edit-subtitle" class="w-full p-2.5 rounded-lg border border-slate-300 text-sm">
-            </div>
-            <div>
-              <label class="block text-xs font-bold text-slate-700 mb-1">Nội dung Lời mở đầu (Bước 1):</label>
-              <textarea id="admin-edit-intro" rows="3" class="w-full p-2.5 rounded-lg border border-slate-300 text-sm"></textarea>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
+              <h5 class="font-bold text-slate-800 text-sm">2. Khung biểu ngữ chào đón (Hero Banner):</h5>
               <div>
-                <label class="block text-xs font-bold text-slate-700 mb-1">Tên Trợ lý AI:</label>
-                <input type="text" id="admin-edit-botname" class="w-full p-2.5 rounded-lg border border-slate-300 text-sm">
+                <label class="block text-xs font-semibold text-slate-600 mb-1">Dòng chữ nhỏ trên cùng (Tagline):</label>
+                <input type="text" id="cfg-hero-tagline" class="w-full p-2.5 rounded-lg border border-slate-300 text-sm">
               </div>
               <div>
-                <label class="block text-xs font-bold text-slate-700 mb-1">System Prompt Trợ lý AI:</label>
-                <input type="text" id="admin-edit-botprompt" class="w-full p-2.5 rounded-lg border border-slate-300 text-sm">
+                <label class="block text-xs font-semibold text-slate-600 mb-1">Tiêu đề lớn Hero Banner:</label>
+                <input type="text" id="cfg-hero-heading" class="w-full p-2.5 rounded-lg border border-slate-300 text-sm font-bold">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1">Đoạn văn mô tả giới thiệu:</label>
+                <textarea id="cfg-hero-desc" rows="3" class="w-full p-2.5 rounded-lg border border-slate-300 text-sm"></textarea>
               </div>
             </div>
-            <div class="flex justify-end gap-2 pt-2">
-              <button type="button" onclick="document.getElementById('admin-edit-form-box').classList.add('hidden')" class="btn btn-secondary text-xs">
-                Hủy bỏ
-              </button>
-              <button type="submit" class="btn btn-primary text-xs" style="background-color: #10B981;">
-                💾 Lưu thay đổi ngay lập tức
+
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
+              <h5 class="font-bold text-slate-800 text-sm">3. Thông tin Chân trang (Footer):</h5>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1">Tên đơn vị chủ quản (Dòng 1):</label>
+                <input type="text" id="cfg-footer-org" class="w-full p-2.5 rounded-lg border border-slate-300 text-sm">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1">Thông tin đề tài Sáng kiến (Dòng 2):</label>
+                <textarea id="cfg-footer-info" rows="2" class="w-full p-2.5 rounded-lg border border-slate-300 text-sm"></textarea>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1">Ghi chú bản quyền / công nghệ (Dòng 3):</label>
+                <input type="text" id="cfg-footer-copyright" class="w-full p-2.5 rounded-lg border border-slate-300 text-sm">
+              </div>
+            </div>
+
+            <div class="flex justify-end">
+              <button type="submit" class="btn btn-primary" style="background-color: #10B981;">
+                💾 Lưu cập nhật Đầu trang & Chân trang
               </button>
             </div>
           </form>
+        </div>
+
+        <!-- TAB 2: QUẢN LÝ CHỦ ĐỀ & 6 BƯỚC WEBQUEST -->
+        <div id="admin-tab-topics" class="hidden space-y-4">
+          <div class="flex items-center justify-between">
+            <h5 class="font-bold text-slate-800 text-sm">Danh sách các chủ đề bài học:</h5>
+            <button onclick="openAddNewTopicForm()" class="btn btn-secondary text-xs">
+              ➕ Thêm chủ đề mới
+            </button>
+          </div>
+
+          <div class="space-y-3" id="admin-topics-list">
+            <!-- Render danh sách chủ đề -->
+          </div>
+
+          <!-- Form chỉnh sửa chi tiết 1 chủ đề -->
+          <div id="admin-edit-form-box" class="hidden p-5 rounded-2xl border border-slate-300 bg-slate-50 space-y-4 mt-4">
+            <div class="flex items-center justify-between pb-2 border-b border-slate-200">
+              <h5 class="font-bold text-slate-900 text-base" id="admin-topic-form-title">Chỉnh sửa nội dung bài học:</h5>
+              <button type="button" onclick="document.getElementById('admin-edit-form-box').classList.add('hidden')" class="text-xs text-slate-500 hover:text-slate-800">
+                Đóng form ✕
+              </button>
+            </div>
+            
+            <form onsubmit="saveTopicFromAdmin(event)" class="space-y-4">
+              <input type="hidden" id="admin-edit-topic-id">
+              
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">Số thứ tự chủ đề:</label>
+                  <input type="text" id="admin-edit-number" placeholder="Chủ đề 2" class="w-full p-2 rounded-lg border border-slate-300 text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">Tên chủ đề:</label>
+                  <input type="text" id="admin-edit-title" class="w-full p-2 rounded-lg border border-slate-300 text-sm font-semibold">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">Mã màu chủ đạo (Hex):</label>
+                  <input type="text" id="admin-edit-color" placeholder="#7D5A38" class="w-full p-2 rounded-lg border border-slate-300 text-sm">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Tiêu đề phụ / Slogan:</label>
+                <input type="text" id="admin-edit-subtitle" class="w-full p-2 rounded-lg border border-slate-300 text-sm">
+              </div>
+
+              <!-- 6 Bước WebQuest -->
+              <div class="p-3 bg-white rounded-xl border border-slate-200 space-y-2">
+                <span class="text-xs font-bold text-slate-800 block">Bước 1: Lời mở đầu (Introduction)</span>
+                <textarea id="admin-edit-intro" rows="3" class="w-full p-2 rounded-lg border border-slate-300 text-xs" placeholder="Nội dung lời dẫn..."></textarea>
+                <input type="text" id="admin-edit-quote" placeholder="Câu trích dẫn truyền cảm hứng..." class="w-full p-2 rounded-lg border border-slate-300 text-xs italic">
+              </div>
+
+              <div class="p-3 bg-white rounded-xl border border-slate-200 space-y-2">
+                <span class="text-xs font-bold text-slate-800 block">Bước 2: Nhiệm vụ (Task - mô tả chung)</span>
+                <textarea id="admin-edit-task-desc" rows="2" class="w-full p-2 rounded-lg border border-slate-300 text-xs" placeholder="Mô tả nhiệm vụ các nhóm..."></textarea>
+              </div>
+
+              <div class="p-3 bg-white rounded-xl border border-slate-200 space-y-2">
+                <span class="text-xs font-bold text-slate-800 block">Bước 6: Kết luận & Huy hiệu (Conclusion)</span>
+                <textarea id="admin-edit-conclusion" rows="2" class="w-full p-2 rounded-lg border border-slate-300 text-xs" placeholder="Lời chúc mừng và đúc kết..."></textarea>
+                <input type="text" id="admin-edit-badge" placeholder="Tên huy hiệu trao thưởng (Ví dụ: Nhà Sử Học Nhí)..." class="w-full p-2 rounded-lg border border-slate-300 text-xs">
+              </div>
+
+              <!-- Cấu hình Trợ lý AI -->
+              <div class="p-3 bg-white rounded-xl border border-slate-200 space-y-2">
+                <span class="text-xs font-bold text-slate-800 block">Trợ lý AI đồng hành của chủ đề này:</span>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                  <input type="text" id="admin-edit-botavatar" placeholder="Icon (🏺, 🎖️...)" class="p-2 rounded-lg border border-slate-300 text-xs">
+                  <input type="text" id="admin-edit-botname" placeholder="Tên Bot (Bác Ba Khảo Cổ...)" class="p-2 rounded-lg border border-slate-300 text-xs font-bold">
+                  <input type="text" id="admin-edit-botrole" placeholder="Vai trò sư phạm..." class="p-2 rounded-lg border border-slate-300 text-xs">
+                </div>
+                <textarea id="admin-edit-botwelcome" rows="2" placeholder="Lời chào đầu khi học sinh bấm mở chat..." class="w-full p-2 rounded-lg border border-slate-300 text-xs"></textarea>
+                <textarea id="admin-edit-botprompt" rows="2" placeholder="System Prompt quy tắc sư phạm..." class="w-full p-2 rounded-lg border border-slate-300 text-xs"></textarea>
+              </div>
+
+              <div class="flex justify-end gap-2 pt-2">
+                <button type="button" onclick="document.getElementById('admin-edit-form-box').classList.add('hidden')" class="btn btn-secondary text-xs">
+                  Hủy bỏ
+                </button>
+                <button type="submit" class="btn btn-primary text-xs" style="background-color: #10B981;">
+                  💾 Lưu bài học này ngay
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- TAB 3: DANH SÁCH NHÓM HỌC SINH -->
+        <div id="admin-tab-groups" class="hidden space-y-4">
+          <form onsubmit="saveGroupsConfig(event)" class="space-y-4">
+            <p class="text-xs text-slate-600">Thầy/Cô có thể đổi tên và biểu tượng của 4 nhóm học sinh lớp 5A2:</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="admin-groups-inputs">
+              <!-- Render tự động bởi JS -->
+            </div>
+            <div class="flex justify-end">
+              <button type="submit" class="btn btn-primary" style="background-color: #10B981;">
+                💾 Lưu danh sách Nhóm học sinh
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- TAB 4: BẢO MẬT & SAO LƯU DỮ LIỆU -->
+        <div id="admin-tab-security" class="hidden space-y-4">
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
+            <h5 class="font-bold text-slate-800 text-sm">1. Đổi mã PIN Giáo viên:</h5>
+            <p class="text-xs text-slate-500">Mã PIN mới sẽ được lưu vào hệ thống bảo mật, chỉ có Thầy/Cô biết:</p>
+            <div class="flex gap-2 max-w-sm">
+              <input type="text" id="cfg-new-pin" placeholder="Nhập mã PIN mới..." class="p-2.5 rounded-lg border border-slate-300 text-sm font-bold flex-1">
+              <button type="button" onclick="changeAdminPin()" class="btn btn-primary text-xs" style="background-color: #2E4057;">
+                Đổi PIN
+              </button>
+            </div>
+          </div>
+
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
+            <h5 class="font-bold text-slate-800 text-sm">2. Sao lưu và Đồng bộ:</h5>
+            <div class="flex flex-wrap gap-2">
+              <button type="button" onclick="exportTopicsJson()" class="btn btn-secondary text-xs">
+                📥 Tải file sao lưu topics.json
+              </button>
+              <button type="button" onclick="exportSiteConfigJson()" class="btn btn-secondary text-xs">
+                📥 Tải file sao lưu site_config.json
+              </button>
+              <button type="button" onclick="resetToFactoryDefault()" class="btn btn-secondary text-xs text-red-600 hover:bg-red-50">
+                🔄 Khôi phục toàn bộ dữ liệu gốc
+              </button>
+            </div>
+          </div>
         </div>
 
       </div>

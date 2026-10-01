@@ -1,0 +1,41 @@
+{
+  "header": {
+    "schoolName": "Trường Tiểu học Trung Nhứt",
+    "classBadge": "5A2",
+    "siteTitle": "WebQuest Lịch sử & Địa lí 5"
+  },
+  "hero": {
+    "tagline": "Chương trình GDPT 2018 • Lớp 5A2 • TP. Cần Thơ",
+    "mainHeading": "Khám phá Lịch sử & Địa lí cùng WebQuest & Trí tuệ nhân tạo (AI)",
+    "description": "Chào mừng các em học sinh lớp 5A2 đến với không gian học tập số tương tác! Hãy nhập vai những nhà khảo cổ, phóng viên chiến trường và đại sứ tương lai để giải mã những bí mật ngàn năm và bảo vệ hành tinh xanh.",
+    "primaryBtnText": "Bắt đầu khám phá Chủ đề 2 ➔",
+    "secondaryBtnText": "📸 Nộp sản phẩm của nhóm"
+  },
+  "stats": [
+    { "value": "04", "label": "Chủ đề tích hợp", "color": "text-slate-800" },
+    { "value": "35", "label": "Học sinh 5A2", "color": "text-amber-700" },
+    { "value": "100%", "label": "Tài nguyên an toàn", "color": "text-emerald-700" },
+    { "value": "01 Chạm", "label": "Nộp bài Camera & Mic", "color": "text-blue-700" }
+  ],
+  "guide": {
+    "heading": "🌟 3 Bước nộp bài siêu dễ dàng cho học sinh lớp 5",
+    "step1Title": "Chọn nhóm",
+    "step1Desc": "Nhấp chọn tên nhóm (Rồng Vàng, Sao Vuông...). Không cần nhớ mật khẩu hay email.",
+    "step2Title": "Chụp ảnh hoặc Ghi âm",
+    "step2Desc": "Bấm máy ảnh để chụp vở ghi, hoặc bấm nút đỏ để nói câu trả lời của nhóm em.",
+    "step3Title": "Nhận huy hiệu",
+    "step3Desc": "Bấm Gửi bài, ngắm pháo hoa bung nở và xem bài mình trên Bảng Vinh Danh của lớp."
+  },
+  "groups": [
+    { "name": "Nhóm 1: Rồng Vàng", "icon": "🐉" },
+    { "name": "Nhóm 2: Khảo Cổ Nhí", "icon": "🏺" },
+    { "name": "Nhóm 3: Sao Vuông", "icon": "⭐" },
+    { "name": "Nhóm 4: Trái Đất", "icon": "🌱" }
+  ],
+  "footer": {
+    "orgName": "TRƯỜNG TIỂU HỌC TRUNG NHỨT - QUẬN THỐT NỐT - THÀNH PHỐ CẦN THƠ",
+    "initiativeInfo": "Sản phẩm số thuộc đề tài Sáng kiến kinh nghiệm năm học 2026: \"Thiết kế WebQuest với sự hỗ trợ của công cụ AI trong dạy học một số chủ đề Lịch sử và Địa lí...\"",
+    "copyright": "Xây dựng theo kiến trúc mở • Triển khai trên GitHub Pages • Tối ưu hoá cho học sinh lớp 5"
+  },
+  "adminPin": "5A2TN"
+}
