@@ -1,0 +1,47 @@
+[
+  {
+    "id": "sub-01",
+    "topicId": "topic-02-quoc-gia-co",
+    "topicTitle": "Những quốc gia đầu tiên trên lãnh thổ Việt Nam",
+    "groupName": "Nhóm 1: Rồng Vàng 5A2",
+    "studentNames": "Nguyễn Hoàng Nam, Lê Thị Mai Anh, Trần Quốc Bảo",
+    "type": "image",
+    "title": "Sơ đồ phục dựng Thành Cổ Loa hình xoáy ốc",
+    "content": "Nhóm em đã vẽ lại 3 vòng thành Cổ Loa và giải thích vì sao nỏ thần và địa hình sông nước giúp vua An Dương Vương bảo vệ đất nước!",
+    "mediaUrl": "https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?auto=format&fit=crop&w=600&q=80",
+    "badge": "Nhà Sử Học Nhí",
+    "score": "10/10",
+    "teacherFeedback": "Ý tưởng rất sáng tạo, nét vẽ rõ ràng và giải thích được yếu tố địa lí của sông Hoàng Giang rất tốt!",
+    "submittedAt": "15:20 - Hôm nay"
+  },
+  {
+    "id": "sub-02",
+    "topicId": "topic-03-bao-ve-dat-nuoc",
+    "topicTitle": "Xây dựng và bảo vệ đất nước Việt Nam",
+    "groupName": "Nhóm 3: Sao Vuông 5A2",
+    "studentNames": "Phạm Minh Khôi, Đỗ Quỳnh Chi",
+    "type": "audio",
+    "title": "Bản tin phát thanh: 56 ngày đêm Điện Biên Phủ",
+    "content": "Bản thu âm lời bình chiến dịch Điện Biên Phủ và tấm gương anh hùng kéo pháo Tô Vĩnh Diện.",
+    "mediaUrl": "",
+    "audioDuration": "01:24",
+    "badge": "Chiến Sĩ Số Xuất Sắc",
+    "score": "9.5/10",
+    "teacherFeedback": "Giọng đọc truyền cảm, hào hùng, làm rõ được sự mưu trí của Đại tướng Võ Nguyên Giáp. Khen ngợi nhóm!",
+    "submittedAt": "14:45 - Hôm nay"
+  },
+  {
+    "id": "sub-03",
+    "topicId": "topic-06-hanh-tinh-xanh",
+    "topicTitle": "Chung tay xây dựng thế giới",
+    "groupName": "Nhóm 4: Trái Đất Xanh",
+    "studentNames": "Võ Thanh Trúc, Đặng Gia Huy, Nguyễn Thị Cẩm Tiên",
+    "type": "text",
+    "title": "Sáng kiến: Đội tuần tra xanh cứu dòng kênh trước trường Trung Nhứt",
+    "content": "Nhóm em đề xuất: 1) Đặt 3 thùng rác phân loại trước cổng trường; 2) Mỗi tuần một buổi vớt rác trên đoạn kênh nhỏ; 3) Tặng huy hiệu xanh cho bạn nào không dùng túi nilon bọc bánh kẹo.",
+    "badge": "Đại Sứ Trái Đất",
+    "score": "10/10",
+    "teacherFeedback": "Giải pháp rất thiết thực, thầy cô sẽ cùng Ban Giám hiệu triển khai ngay ý tưởng này tại trường mình!",
+    "submittedAt": "11:10 - Hôm nay"
+  }
+]

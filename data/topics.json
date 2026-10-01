@@ -1,0 +1,486 @@
+[
+  {
+    "id": "topic-02-quoc-gia-co",
+    "number": "Chủ đề 2",
+    "title": "Những quốc gia đầu tiên trên lãnh thổ Việt Nam",
+    "subtitle": "Hành trình khảo cổ: Khám phá bí ẩn Văn Lang, Âu Lạc, Phù Nam và Chăm-pa",
+    "badge": "Lịch sử cổ đại",
+    "themeColor": "#7D5A38",
+    "bgColor": "#FAF5F0",
+    "accentColor": "#9C7249",
+    "textColor": "#2B1D12",
+    "aiPersona": {
+      "name": "Bác Ba Khảo Cổ Nam Bộ",
+      "avatar": "🏺",
+      "role": "Nhà nghiên cứu khảo cổ học Tây Nam Bộ",
+      "welcomeMsg": "Chào các cháu học sinh lớp 5A2 trường Trung Nhứt! Bác Ba rất vui được cùng các cháu đi ngược thời gian về hàng nghìn năm trước để giải mã di chỉ Óc Eo và những nền văn minh rực rỡ thuở xưa!",
+      "quickPrompts": [
+        "Vì sao người Phù Nam lại giỏi nghề đi biển và làm đồ trang sức vàng?",
+        "Hoa văn trên trống đồng Đông Sơn cho ta biết gì về đời sống người Việt cổ?",
+        "Người Chăm-pa xưa đã xây dựng những ngọn tháp gạch kỳ diệu như thế nào?"
+      ],
+      "systemPrompt": "Bạn là Bác Ba Khảo Cổ Nam Bộ, một nhà nghiên cứu lịch sử đôn hậu, am hiểu sâu sắc về văn hoá Óc Eo - Phù Nam (gắn liền vùng đất Tây Nam Bộ, Thốt Nốt, Cần Thơ), Văn Lang - Âu Lạc và Chăm-pa. Hãy dùng giọng điệu ấm áp, mộc mạc của người miền Tây để trò chuyện với học sinh lớp 5 trường Tiểu học Trung Nhứt. Tuyệt đối không đưa ngay đáp án bài tập, hãy đặt câu hỏi gợi ý và chỉ ra vị trí tư liệu trong WebQuest để các em tự tìm tòi, phát triển năng lực giải quyết vấn đề."
+    },
+    "steps": {
+      "introduction": {
+        "heading": "Lời mở đầu: Tiếng vọng từ lòng đất mẹ",
+        "content": "Các em học sinh lớp 5A2 thân mến! Đã bao giờ các em tự hỏi: Hàng nghìn năm trước, trên mảnh đất Việt Nam hình chữ S và ngay tại vùng đồng bằng sông Cửu Long trù phú nơi chúng ta đang sống, tổ tiên chúng ta đã sinh sống, dựng xây đất nước như thế nào chưa? Những chiếc trống đồng Đông Sơn rực rỡ hoa văn, những ngọn tháp Chăm trầm mặc vươn lên giữa trời xanh, và những di vật vàng lấp lánh dưới lòng đất Óc Eo huyền bí đang cất giữ những bí mật kỳ diệu. Hôm nay, các em được mời tham gia vào Đoàn Khảo cổ học nhí 5A2 để bước lên 'Cỗ máy thời gian', cùng nhau khám phá và phục dựng lại diện mạo của ba quốc gia đầu tiên trên lãnh thổ nước mình!",
+        "quote": "Lịch sử không phải là những con số khô khan, mà là cội nguồn của chính mỗi chúng ta hôm nay."
+      },
+      "task": {
+        "heading": "Nhiệm vụ thám hiểm (Phân vai chuyên gia)",
+        "content": "Các nhóm sẽ nhận thẻ nhiệm vụ và cùng nhau hợp tác giải quyết vấn đề của từng nền văn minh:",
+        "groups": [
+          {
+            "name": "Nhóm 1: Chuyên gia Khảo cổ Văn Lang - Âu Lạc",
+            "mission": "Giải mã đời sống vật chất và tinh thần của người Việt cổ qua hoa văn Trống đồng Đông Sơn và sự tích nỏ thần thành Cổ Loa. Vẽ lại hoặc mô tả cấu trúc thành Cổ Loa hình xoáy ốc.",
+            "deliverable": "01 sơ đồ tư duy hoặc bài nói ghi âm giải thích vì sao thành Cổ Loa được coi là kỳ tích quân sự thời cổ."
+          },
+          {
+            "name": "Nhóm 2: Chuyên gia Khảo cổ Phù Nam & Văn hoá Óc Eo",
+            "mission": "Lần theo dấu vết thương cảng cổ Óc Eo (rất gần vùng đất Thốt Nốt - Cần Thơ), giải mã nghề buôn bán đường biển, nghề kim hoàn và đời sống trên nhà sàn của cư dân Nam Bộ xưa.",
+            "deliverable": "01 bản cẩm nang giới thiệu hiện vật gốm hoặc đồ trang sức vàng Óc Eo đang trưng bày tại Bảo tàng Cần Thơ."
+          },
+          {
+            "name": "Nhóm 3: Chuyên gia Kiến trúc & Văn hoá Chăm-pa",
+            "mission": "Tìm hiểu kỹ thuật nung gạch và chạm khắc đá kỳ diệu của người Chăm; khám phá điệu múa Apsara và lễ hội Katê truyền thống.",
+            "deliverable": "01 đoạn văn cảm nghĩ hoặc tranh vẽ tái hiện nét đẹp của một ngôi tháp Chăm cổ."
+          }
+        ]
+      },
+      "process": {
+        "heading": "Tiến trình thực hiện (3 chặng khám phá)",
+        "stages": [
+          {
+            "step": "Chặng 1: Thu thập dấu tích số (10 phút)",
+            "desc": "Các nhóm nhấp vào mục Tài nguyên để xem hình ảnh hiện vật 3D, đọc trích đoạn SGK trang 25-35 và lắng nghe lời dẫn."
+          },
+          {
+            "step": "Chặng 2: Đối thoại cùng Bác Ba Khảo Cổ (8 phút)",
+            "desc": "Mở khung chat Trợ lý AI ở góc phải màn hình, đặt câu hỏi gỡ rối nếu nhóm chưa hiểu rõ về công dụng của hiện vật hay ý nghĩa phong tục."
+          },
+          {
+            "step": "Chặng 3: Chế tác sản phẩm số & Nộp bài (12 phút)",
+            "desc": "Vẽ tranh hoặc viết cảm nghĩ vào vở, sau đó dùng nút 'Chụp ảnh' hoặc 'Ghi âm giọng nói' trên website để nộp bài trực tiếp."
+          }
+        ]
+      },
+      "resources": {
+        "heading": "Kho tài nguyên số được kiểm duyệt",
+        "items": [
+          {
+            "title": "SGK Lịch sử và Địa lí 5 - Bài 5, 6, 7 (NXB Giáo dục Việt Nam)",
+            "desc": "Nội dung chuẩn mực về đời sống cư dân Văn Lang, Âu Lạc, Phù Nam và Chăm-pa.",
+            "tag": "Sách Giáo Khoa"
+          },
+          {
+            "title": "Bộ sưu tập hiện vật Văn hoá Óc Eo - Bảo tàng Cần Thơ",
+            "desc": "Hình ảnh cận cảnh khuôn đúc vàng, nhẫn vàng chạm hình bò Nandin và bình gốm cổ.",
+            "tag": "Di sản Nam Bộ"
+          },
+          {
+            "title": "Phim hoạt hình tư liệu: Bí ẩn hoa văn Trống đồng Đông Sơn",
+            "desc": "Giải mã hình ảnh người giã gạo, chim lạc bay và đoàn thuyền chiến thời Hùng Vương.",
+            "tag": "Video giáo dục"
+          },
+          {
+            "title": "Thực tế ảo 3D: Tham quan khu đền tháp Mỹ Sơn",
+            "desc": "Trải nghiệm không gian kiến trúc gạch nung rực rỡ của vương quốc Chăm-pa cổ.",
+            "tag": "Trải nghiệm 3D"
+          }
+        ]
+      },
+      "evaluation": {
+        "heading": "Bảng tiêu chí đánh giá (Rubric tự chấm điểm)",
+        "criteria": [
+          {
+            "name": "Năng lực tìm hiểu lịch sử",
+            "good": "Xác định chính xác địa bàn, hiện vật tiêu biểu và phong tục của quốc gia cổ (3đ)",
+            "medium": "Nêu được tên quốc gia và một số hiện vật cơ bản (2đ)",
+            "poor": "Còn nhầm lẫn giữa các nền văn hoá cổ (1đ)"
+          },
+          {
+            "name": "Năng lực giải quyết vấn đề",
+            "good": "Giải thích được vì sao vị trí địa lí giúp Phù Nam trở thành thương cảng sầm uất hoặc vì sao Cổ Loa phòng thủ tốt (4đ)",
+            "medium": "Nêu được đặc điểm nhưng chưa liên hệ được mối quan hệ nhân quả (2.5đ)",
+            "poor": "Chỉ đọc lại sách, chưa có suy luận cá nhân (1.5đ)"
+          },
+          {
+            "name": "Năng lực số & Tương tác nhóm",
+            "good": "Tự giác phối hợp, chụp ảnh bài làm rõ nét hoặc ghi âm lời bình truyền cảm, biết hỏi AI đúng trọng tâm (3đ)",
+            "medium": "Thực hiện được thao tác nộp bài nhưng còn cần sự trợ giúp (2đ)",
+            "poor": "Chưa hoàn thành sản phẩm số (1đ)"
+          }
+        ]
+      },
+      "conclusion": {
+        "heading": "Kết luận & Thông điệp di sản",
+        "content": "Chúc mừng các nhà khảo cổ học nhí lớp 5A2 đã hoàn thành xuất sắc chuyến du hành vượt thời gian! Qua các di vật cổ kính, chúng ta thêm tự hào về bàn tay tài hoa, khối óc thông minh và bản lĩnh dựng nước của tiền nhân. Dù là người Việt cổ ở miền Bắc, người Chăm ở miền Trung hay cư dân Phù Nam ở vùng đất Nam Bộ quê mình, tất cả đã cùng bồi đắp nên bản sắc văn hoá đa dạng, giàu đẹp của Tổ quốc Việt Nam hôm nay. Hãy cùng nhau giữ gìn và trân trọng từng trang sử hào hùng của cha ông nhé!",
+        "badge": "Huy hiệu: Nhà Sử Học Nhí Tây Nam Bộ"
+      }
+    }
+  },
+  {
+    "id": "topic-03-bao-ve-dat-nuoc",
+    "number": "Chủ đề 3",
+    "title": "Xây dựng và bảo vệ đất nước Việt Nam",
+    "subtitle": "Bản hùng ca non sông: Lần theo dấu chân những chiến dịch vang dội",
+    "badge": "Lịch sử giữ nước",
+    "themeColor": "#8C3838",
+    "bgColor": "#FDF4F4",
+    "accentColor": "#AA4A4A",
+    "textColor": "#2C1212",
+    "aiPersona": {
+      "name": "Anh Chiến Sĩ Sao Vuông",
+      "avatar": "🎖️",
+      "role": "Chiến sĩ liên lạc mặt trận Điện Biên & Hồ Chí Minh",
+      "welcomeMsg": "Báo cáo chỉ huy lớp 5A2! Anh Sao Vuông đã có mặt để cùng các đồng chí nhỏ giải mã những trang sử hào hùng nhất của dân tộc: Điện Biên Phủ 'lừng lẫy năm châu' và ngày hội non sông thống nhất 30/4/1975!",
+      "quickPrompts": [
+        "Vì sao bộ đội ta phải kéo pháo vào rồi lại kéo pháo ra ở Điện Biên Phủ?",
+        "Chiến dịch Hồ Chí Minh lịch sử đã diễn ra với mấy cánh quân tiến vào Sài Gòn?",
+        "Tấm gương anh hùng Phan Đình Giót và Tô Vĩnh Diện thể hiện điều gì?"
+      ],
+      "systemPrompt": "Bạn là Anh Chiến Sĩ Sao Vuông, người lính liên lạc dũng cảm, nhanh nhẹn, tự hào về lịch sử kháng chiến của Quân đội nhân dân Việt Nam. Hãy hướng dẫn học sinh lớp 5 trường Tiểu học Trung Nhứt tìm hiểu Bài 15 (Điện Biên Phủ) và Bài 16 (Chiến dịch Hồ Chí Minh). Giải thích các thuật ngữ quân sự bằng hình ảnh trực quan, khơi gợi lòng biết ơn và niềm tự hào dân tộc, kiên nhẫn hướng dẫn các em tự suy nghĩ giải pháp cho nhiệm vụ học tập."
+    },
+    "steps": {
+      "introduction": {
+        "heading": "Lời mở đầu: Mệnh lệnh từ trái tim người lính",
+        "content": "Các em học sinh lớp 5A2! Lịch sử dân tộc Việt Nam là trang sử vàng dựng nước đi đôi với giữ nước. 56 ngày đêm 'khoét núi, ngủ hầm, mưa dầm, cơm vắt' tại Điện Biên Phủ năm 1954 và 55 ngày đêm thần tốc của Chiến dịch Hồ Chí Minh lịch sử mùa xuân năm 1975 đã mãi mãi tạc vào non sông như những mốc son chói lọi nhất. Hôm nay, trong vai trò những phóng viên chiến trường nhí, các em hãy cùng nhau giải mã sức mạnh thần kỳ nào đã giúp một dân tộc nhỏ bé đánh thắng những đội quân xâm lược hùng mạnh nhất thời đại!",
+        "quote": "Không có gì quý hơn độc lập, tự do! - Chủ tịch Hồ Chí Minh"
+      },
+      "task": {
+        "heading": "Nhiệm vụ tác chiến (Phóng viên mặt trận)",
+        "content": "Hãy lựa chọn nhiệm vụ của trung đội mình để hoàn thành bản tin chiến thắng:",
+        "groups": [
+          {
+            "name": "Phân đội 1: Giải mã Chiến dịch Điện Biên Phủ 1954",
+            "mission": "Tìm hiểu nguyên nhân Đại tướng Võ Nguyên Giáp quyết định chuyển phương châm tác chiến từ 'Đánh nhanh thắng nhanh' sang 'Đánh chắc tiến chắc'. Kể lại câu chuyện cảm động về sự hy sinh của anh hùng Tô Vĩnh Diện hoặc Phan Đình Giót.",
+            "deliverable": "Ghi âm một bản tin phát thanh chiến thắng chiều ngày 7/5/1954 khi cờ Quyết chiến Quyết thắng tung bay trên nóc hầm Đờ Cát."
+          },
+          {
+            "name": "Phân đội 2: Giải mã Đại thắng mùa Xuân 30/4/1975",
+            "mission": "Theo dõi lược đồ 5 cánh quân tiến về giải phóng Sài Gòn. Tái hiện khoảnh khắc thiêng liêng lúc 11 giờ 30 phút ngày 30/4/1975 khi chiếc xe tăng 390 húc đổ cổng Dinh Độc Lập.",
+            "deliverable": "Vẽ hoặc chụp ảnh một bức tranh cổ động chào mừng ngày thống nhất đất nước, non sông liền một dải."
+          },
+          {
+            "name": "Phân đội 3: Hậu phương hướng về tiền tuyến",
+            "mission": "Tìm hiểu vai trò của những đoàn xe đạp thồ Điện Biên và sự chở che, nuôi giấu cán bộ của đồng bào miền Nam, đặc biệt là quân và dân Cần Thơ, Thốt Nốt trong kháng chiến.",
+            "deliverable": "Viết đoạn văn ngắn (3-5 câu) bày tỏ lòng biết ơn sâu sắc đối với các thương binh, liệt sĩ đã hy sinh vì nền hòa bình hôm nay."
+          }
+        ]
+      },
+      "process": {
+        "heading": "Tiến trình tác chiến số",
+        "stages": [
+          {
+            "step": "Chặng 1: Mở bản đồ hành quân (8 phút)",
+            "desc": "Quan sát lược đồ tác chiến trong mục Tài nguyên, đọc SGK trang 65-71 để nắm rõ thời gian, địa điểm và các mốc sự kiện chính."
+          },
+          {
+            "step": "Chặng 2: Phỏng vấn Anh Sao Vuông (7 phút)",
+            "desc": "Hỏi Trợ lý AI về cảm xúc của người lính khi xung phong, ý nghĩa của việc đào giao thông hào vây lấn lòng chảo Mường Thanh."
+          },
+          {
+            "step": "Chặng 3: Thu âm hoặc Chụp ảnh bài làm (15 phút)",
+            "desc": "Sử dụng tính năng Ghi âm 1 chạm để phát biểu cảm nghĩ hoặc chụp ảnh trang bài viết trong vở nộp lên hệ thống."
+          }
+        ]
+      },
+      "resources": {
+        "heading": "Tư liệu chiến trường trực tuyến",
+        "items": [
+          {
+            "title": "SGK Lịch sử và Địa lí 5 - Bài 15 & 16",
+            "desc": "Diễn biến chính của Chiến dịch Điện Biên Phủ và Chiến dịch Hồ Chí Minh giải phóng hoàn toàn miền Nam.",
+            "tag": "Sách Giáo Khoa"
+          },
+          {
+            "title": "Bản đồ điện tử 3D Chiến dịch Điện Biên Phủ",
+            "desc": "Mô phỏng 3 đợt tiến công của quân đội ta vào các cứ điểm Him Lam, Độc Lập, đồi A1.",
+            "tag": "Sa bàn số"
+          },
+          {
+            "title": "Khoảnh khắc lịch sử 11h30 trưa ngày 30/4/1975",
+            "desc": "Đoạn phim tư liệu gốc ghi lại cảnh xe tăng húc cổng Dinh Độc Lập và cờ giải phóng tung bay.",
+            "tag": "Phim tài liệu VTV"
+          },
+          {
+            "title": "Bài ca 'Chiến thắng Điện Biên' - Nhạc sĩ Đỗ Nhuận",
+            "desc": "Giai điệu rộn ràng, hào sảng tái hiện niềm vui vỡ oà của toàn dân tộc trong ngày khải hoàn.",
+            "tag": "Âm nhạc lịch sử"
+          }
+        ]
+      },
+      "evaluation": {
+        "heading": "Bảng tiêu chí đánh giá chiến sĩ nhí",
+        "criteria": [
+          {
+            "name": "Nắm vững mốc son lịch sử",
+            "good": "Nêu đúng thời gian, địa điểm, ý nghĩa chiến thắng Điện Biên Phủ và ngày 30/4/1975 (3đ)",
+            "medium": "Nêu được sự kiện nhưng còn nhầm lẫn mốc thời gian cụ thể (2đ)",
+            "poor": "Chưa nhớ được các sự kiện cơ bản (1đ)"
+          },
+          {
+            "name": "Giải quyết tình huống lịch sử",
+            "good": "Phân tích được sự mưu trí, dũng cảm và vì sao nhân dân ta chiến thắng (4đ)",
+            "medium": "Nêu được diễn biến chính nhưng chưa rút ra được bài học (2.5đ)",
+            "poor": "Chỉ kể lại một vài chi tiết rời rạc (1.5đ)"
+          },
+          {
+            "name": "Kỹ năng truyền tải số",
+            "good": "Bản thu âm to, rõ ràng, giàu cảm xúc; ảnh chụp ngay ngắn, chữ viết sạch đẹp (3đ)",
+            "medium": "Bản ghi âm hoặc ảnh chụp đạt yêu cầu mức độ cơ bản (2đ)",
+            "poor": "Âm thanh khó nghe hoặc ảnh bị mờ (1đ)"
+          }
+        ]
+      },
+      "conclusion": {
+        "heading": "Mệnh lệnh hoà bình gửi tương lai",
+        "content": "Hoan hô các chiến sĩ nhỏ lớp 5A2! Bài học từ Điện Biên Phủ và Đại thắng mùa Xuân nhắc nhở chúng ta rằng: Hoà bình hôm nay được đánh đổi bằng xương máu và tuổi xuân của biết bao thế hệ cha anh. Là những mầm non của đất nước đang học tập dưới mái trường Tiểu học Trung Nhứt thân yêu, các em hãy ra sức chăm ngoan, học giỏi để xứng đáng với truyền thống anh hùng của dân tộc Việt Nam!",
+        "badge": "Huy hiệu: Chiến Sĩ Số Điện Biên Xuất Sắc"
+      }
+    }
+  },
+  {
+    "id": "topic-05-van-minh-the-gioi",
+    "number": "Chủ đề 5",
+    "title": "Tìm hiểu thế giới",
+    "subtitle": "Hộ chiếu xuyên không gian: Thám hiểm văn minh Ai Cập và Hy Lạp",
+    "badge": "Văn minh nhân loại",
+    "themeColor": "#205493",
+    "bgColor": "#EDF4FA",
+    "accentColor": "#316BB0",
+    "textColor": "#0E2440",
+    "aiPersona": {
+      "name": "Nhà Du Hành Herodotus",
+      "avatar": "🧭",
+      "role": "Nhà thám hiểm di sản xuyên thời gian",
+      "welcomeMsg": "Xin chào các công dân toàn cầu nhí của lớp 5A2! Hãy cầm chắc tấm vé thông hành trên tay, ta sẽ cùng các em bay qua biển lớn để chiêm ngưỡng Kim tự tháp Ai Cập khổng lồ và đền thần Pác-tê-nông lộng lẫy!",
+      "quickPrompts": [
+        "Vì sao người xưa lại nói: 'Ai Cập là tặng phẩm của sông Nin'?",
+        "Người Hy Lạp cổ đại đã sáng tạo ra chữ viết và Đại hội thể thao Olympic ra sao?",
+        "Vì sao các nền văn minh lớn thời xưa đều sinh ra bên cạnh những dòng sông lớn?"
+      ],
+      "systemPrompt": "Bạn là Nhà Du Hành Herodotus, người hướng dẫn viên thông thái, hài hước, khơi dậy trí tò mò của học sinh lớp 5 về nền văn minh Ai Cập và Hy Lạp cổ đại (SGK Lịch sử và Địa lí 5 - Bài 24, 25). Giúp các em hiểu được sức lao động phi thường và trí tuệ của con người thời xưa. Luôn liên hệ câu chuyện sông Nin với dòng sông Hậu hiền hòa chảy qua Cần Thơ để các em thấy sự gần gũi của kiến thức địa lí."
+    },
+    "steps": {
+      "introduction": {
+        "heading": "Lời mở đầu: Chuyến bay xuyên lục địa",
+        "content": "Chào mừng các nhà thám hiểm nhí lớp 5A2 bước vào hành trình khám phá thế giới! Từ hàng nghìn năm trước Công nguyên, khi máy móc hiện đại chưa hề xuất hiện, con người đã tạo nên những công trình kỳ vĩ chạm tới trời cao. Dòng sông Nin đỏ nặng phù sa đã nuôi dưỡng những vị vua Pharaon quyền uy cùng các lăng mộ Kim tự tháp trường tồn cùng thời gian. Xa hơn về phương Bắc, bên bờ biển Địa Trung Hải xanh biếc, người Hy Lạp đã thắp lên ngọn lửa triết học, nghệ thuật và tinh thần thể thao Olympic cao thượng. Hãy chuẩn bị hành trang trí tuệ để cùng giải mã những kỳ quan này!",
+        "quote": "Trí tưởng tượng quan trọng hơn tri thức, vì tri thức có giới hạn còn trí tưởng tượng bao quát cả thế giới. - Albert Einstein"
+      },
+      "task": {
+        "heading": "Thử thách của công dân toàn cầu",
+        "content": "Mỗi nhóm chuyên gia hãy hoàn thành nhiệm vụ khám phá kỳ quan nhân loại:",
+        "groups": [
+          {
+            "name": "Đội Thám hiểm Sông Nin (Ai Cập)",
+            "mission": "Giải mã vai trò sống còn của sông Nin đối với mùa màng và đời sống người Ai Cập. Tìm hiểu vì sao Kim tự tháp Kê-ốp lại đứng vững hơn 4.500 năm qua bão cát sa mạc.",
+            "deliverable": "Viết một tấm bưu thiếp điện tử gửi từ Kim tự tháp Giza hoặc thử vẽ lại tên mình bằng chữ tượng hình."
+          },
+          {
+            "name": "Đội Khám phá Đền Thần (Hy Lạp)",
+            "mission": "Khám phá vẻ đẹp cân xứng hoàn hảo của đền Pác-tê-nông và tìm hiểu nguồn gốc của ngọn đuốc Thế vận hội Olympic cổ đại.",
+            "deliverable": "Ghi âm một bài thuyết minh ngắn giới thiệu về một môn thể thao hoặc vị thần Hy Lạp em yêu thích."
+          },
+          {
+            "name": "Đội Liên môn Kết nối Quê hương",
+            "mission": "So sánh: Cư dân Ai Cập biết tận dụng nước sông Nin để trồng trọt, vậy người dân Nam Bộ quê em đã tận dụng mùa nước nổi của sông Cửu Long như thế nào?",
+            "deliverable": "Đề xuất 2 việc làm nhỏ để giữ sạch dòng nước sông trước cửa nhà em."
+          }
+        ]
+      },
+      "process": {
+        "heading": "Quy trình du hành không gian",
+        "stages": [
+          {
+            "step": "Chặng 1: Nhận diện toạ độ địa lí (8 phút)",
+            "desc": "Xác định vị trí châu Phi, vị trí sông Nin và vị trí bán đảo Hy Lạp trên quả địa cầu số trong mục Tài nguyên."
+          },
+          {
+            "step": "Chặng 2: Du hành 360 độ cùng Herodotus (10 phút)",
+            "desc": "Bấm vào link tham quan ảo lăng mộ và hỏi đáp cùng Trợ lý AI để hiểu cách người xưa ướp xác và vận chuyển những khối đá nặng hàng tấn."
+          },
+          {
+            "step": "Chặng 3: Sáng tạo sản phẩm du lịch (12 phút)",
+            "desc": "Vẽ hoặc thu âm thông điệp du lịch di sản, nhấn nút Nộp bài để chia sẻ lên Triển lãm lớp học."
+          }
+        ]
+      },
+      "resources": {
+        "heading": "Cửa sổ nhìn ra thế giới",
+        "items": [
+          {
+            "title": "SGK Lịch sử và Địa lí 5 - Bài 24 & 25",
+            "desc": "Kiến thức trọng tâm về nền văn minh Ai Cập và văn minh Hy Lạp cổ đại.",
+            "tag": "Sách Giáo Khoa"
+          },
+          {
+            "title": "Chuyến tham quan thực tế ảo 360 độ Kim Tự Tháp Giza",
+            "desc": "Tự do bước đi trong không gian lăng mộ Pharaoh và ngắm nhìn tượng Nhân Sư khổng lồ.",
+            "tag": "Virtual Tour 3D"
+          },
+          {
+            "title": "Bảng chuyển ngữ chữ Tượng hình Ai Cập cổ đại",
+            "desc": "Bảng quy chiếu vui nhộn giúp học sinh tự ghép các biểu tượng chim, mắt, sóng nước thành tên của mình.",
+            "tag": "Tài liệu tương tác"
+          },
+          {
+            "title": "Đoạn phim ngắn: Lễ rước đuốc Olympic khởi nguồn từ đỉnh Olympia",
+            "desc": "Ý nghĩa cao đẹp của ngọn lửa hòa bình và tinh thần thể thao trung thực, hữu nghị giữa các quốc gia.",
+            "tag": "Video tài liệu"
+          }
+        ]
+      },
+      "evaluation": {
+        "heading": "Tiêu chí chấm điểm hộ chiếu",
+        "criteria": [
+          {
+            "name": "Hiểu biết về thành tựu văn minh",
+            "good": "Nêu rõ các thành tựu tiêu biểu về kiến trúc, chữ viết, lịch pháp, thể thao của Ai Cập và Hy Lạp (3đ)",
+            "medium": "Kể tên được một vài công trình nổi tiếng (2đ)",
+            "poor": "Chưa nhớ được tên các nền văn minh (1đ)"
+          },
+          {
+            "name": "Năng lực liên hệ thực tiễn",
+            "good": "So sánh thông minh giữa phù sa sông Nin và phù sa màu mỡ của sông Hậu quê hương (4đ)",
+            "medium": "Có liên hệ với quê hương nhưng còn sơ sài (2.5đ)",
+            "poor": "Chưa biết liên hệ kiến thức với đời sống (1.5đ)"
+          },
+          {
+            "name": "Tự tin ứng dụng công nghệ",
+            "good": "Thao tác mượt mà trên web, tự tin khám phá ảnh 3D và hoàn thành nộp bài đúng hạn (3đ)",
+            "medium": "Hoàn thành nhiệm vụ nhưng còn nhờ bạn hỗ trợ chụp ảnh/ghi âm (2đ)",
+            "poor": "Chưa nộp được sản phẩm lên web (1đ)"
+          }
+        ]
+      },
+      "conclusion": {
+        "heading": "Cánh cửa tương lai rộng mở",
+        "content": "Thế giới muôn màu với vô vàn điều kỳ diệu đang đón chờ các em! Khám phá văn minh nhân loại giúp các em hiểu rằng mỗi dân tộc, mỗi nền văn hóa đều có những đóng góp vô giá cho lịch sử chung của loài người. Hãy nuôi dưỡng ước mơ bay cao, bay xa, trở thành những công dân toàn cầu giàu lòng nhân ái, hiểu biết sâu rộng và luôn tự hào về cội nguồn Việt Nam!",
+        "badge": "Huy hiệu: Nhà Thám Hiểm Di Sản Toàn Cầu"
+      }
+    }
+  },
+  {
+    "id": "topic-06-hanh-tinh-xanh",
+    "number": "Chủ đề 6",
+    "title": "Chung tay xây dựng thế giới",
+    "subtitle": "Đại sứ tương lai: Vì màu xanh quê hương và một thế giới hoà bình",
+    "badge": "Hành động thực tiễn",
+    "themeColor": "#2D5A46",
+    "bgColor": "#EFF6F2",
+    "accentColor": "#3E7B60",
+    "textColor": "#0F281C",
+    "aiPersona": {
+      "name": "Bạn Xanh Gaia",
+      "avatar": "🌱",
+      "role": "Trợ lý bảo vệ Trái Đất và Hoà bình thế giới",
+      "welcomeMsg": "Chào bạn nhỏ lớp 5A2 trường Trung Nhứt! Trái Đất của chúng ta đang cần những bàn tay nhỏ bé nhưng chứa chan yêu thương của các em. Hãy cùng nhau hành động ngay hôm nay vì một dòng kênh trong lành và nụ cười trẻ thơ khắp năm châu!",
+      "quickPrompts": [
+        "Chúng em có thể làm gì để giảm rác thải nhựa ở trường Tiểu học Trung Nhứt?",
+        "Vì sao hoà bình lại là ước mơ lớn nhất của mọi trẻ em trên Trái Đất?",
+        "Biến đổi khí hậu đang làm nước biển dâng và xâm nhập mặn ở miền Tây như thế nào?"
+      ],
+      "systemPrompt": "Bạn là Bạn Xanh Gaia, biểu tượng của tình yêu thiên nhiên và ước vọng hoà bình thế giới. Trò chuyện thân ái, truyền cảm hứng hành động cho học sinh lớp 5 trường Tiểu học Trung Nhứt, quận Thốt Nốt, Cần Thơ. Hướng dẫn các em thực hiện Bài 26 (Xây dựng thế giới xanh - sạch - đẹp) và Bài 27 (Xây dựng thế giới hoà bình). Khích lệ các em bắt đầu từ những việc làm giản dị nhất quanh lớp học, sân trường và khu dân cư."
+    },
+    "steps": {
+      "introduction": {
+        "heading": "Lời mở đầu: Tiếng kêu cứu của Mẹ Thiên Nhiên",
+        "content": "Các em học sinh lớp 5A2 yêu quý! Chúng ta may mắn được sinh ra và lớn lên trên mảnh đất Cần Thơ gạo trắng nước trong, rợp bóng cây trái tốt tươi. Nhưng ngoài kia, Trái Đất đang nóng dần lên, nước mặn xâm nhập sâu vào đồng ruộng miền Tây mùa khô, và dòng kênh trước cổng trường đôi lúc vẫn còn những vỏ chai nhựa dập dềnh trôi nổi. Ở một số nơi trên thế giới, tiếng súng chiến tranh vẫn cướp đi mái trường và nụ cười của các bạn nhỏ trạc tuổi các em. Hội nghị Thượng đỉnh Trẻ em Thế giới xin trao chứng nhận Đại sứ Tương lai cho từng học sinh lớp 5A2. Hãy lên tiếng và hành động ngay từ hôm nay!",
+        "quote": "Trái Đất có đủ tài nguyên cho nhu cầu của tất cả mọi người, nhưng không đủ cho lòng tham của con người. - Mahatma Gandhi"
+      },
+      "task": {
+        "heading": "Dự án hành động của Đại sứ xanh",
+        "content": "Hãy thảo luận nhóm và lựa chọn sáng kiến giải quyết vấn đề thiết thực nhất:",
+        "groups": [
+          {
+            "name": "Đội 1: Hiệp sĩ Xanh trường Trung Nhứt",
+            "mission": "Điều tra thực trạng xả rác tại lớp học và sân trường; đề xuất giải pháp 3T (Tiết giảm - Tái sử dụng - Tái chế) để biến rác hữu cơ thành phân bón cho vườn hoa của trường.",
+            "deliverable": "Chụp ảnh một bức tranh cổ động 'Nói không với rác thải nhựa' do nhóm tự vẽ."
+          },
+          {
+            "name": "Đội 2: Người Giữ Dòng Nước Ngọt Quê Hương",
+            "mission": "Tìm hiểu hiện tượng biến đổi khí hậu ảnh hưởng thế nào đến nguồn nước sông rạch ở Cần Thơ; đề xuất 3 thói quen tiết kiệm nước sạch tại gia đình em.",
+            "deliverable": "Ghi âm một thông điệp 60 giây kêu gọi bà con lối xóm cùng giữ sạch dòng kênh quê hương."
+          },
+          {
+            "name": "Đội 3: Chim Bồ Câu Trắng Hoà Bình",
+            "mission": "Tìm hiểu những mất mát đau thương mà chiến tranh gây ra cho trẻ em; sáng tạo một thông điệp hoà bình gửi các bạn nhỏ toàn cầu.",
+            "deliverable": "Viết hoặc gấp một chú chim bồ câu giấy mang thông điệp hoà bình, chụp ảnh gửi lên triển lãm."
+          }
+        ]
+      },
+      "process": {
+        "heading": "Quy trình triển khai dự án",
+        "stages": [
+          {
+            "step": "Chặng 1: Nhận diện nguy cơ (8 phút)",
+            "desc": "Xem biểu đồ nhiệt độ toàn cầu và phóng sự ngắn về rác thải nhựa đại dương trong mục Tài nguyên."
+          },
+          {
+            "step": "Chặng 2: Tham vấn Bạn Xanh Gaia (7 phút)",
+            "desc": "Nhấp vào Trợ lý AI để hỏi về cách phân loại rác đúng cách hoặc ý nghĩa của biểu tượng chim bồ câu trắng ngậm cành ô-liu."
+          },
+          {
+            "step": "Chặng 3: Hành động & Lan toả (15 phút)",
+            "desc": "Hoàn thành sản phẩm cổ động của nhóm và bấm nút Nộp bài để thắp sáng bản đồ hành động xanh của lớp 5A2."
+          }
+        ]
+      },
+      "resources": {
+        "heading": "Cẩm nang hành động vì môi trường",
+        "items": [
+          {
+            "title": "SGK Lịch sử và Địa lí 5 - Bài 26 & 27",
+            "desc": "Bài học về bảo vệ môi trường toàn cầu và gìn giữ hòa bình thế giới.",
+            "tag": "Sách Giáo Khoa"
+          },
+          {
+            "title": "Biểu đồ trực quan: 500 năm phân huỷ của một chai nhựa",
+            "desc": "Thông điệp giật mình về tác hại lâu dài của rác thải nhựa dùng một lần đối với đất và nguồn nước.",
+            "tag": "Infographic"
+          },
+          {
+            "title": "Clip ngắn: Ngày Môi trường Thế giới 5/6 & Giờ Trái Đất",
+            "desc": "Hành động chung của hàng triệu người dân trên thế giới cùng tắt điện và trồng cây xanh.",
+            "tag": "Video hành động"
+          },
+          {
+            "title": "Bài hát 'Trẻ em hôm nay, thế giới ngày mai'",
+            "desc": "Giai điệu trong sáng ngợi ca quyền trẻ em được sống trong hoà bình, yêu thương và học tập.",
+            "tag": "Giai điệu hoà bình"
+          }
+        ]
+      },
+      "evaluation": {
+        "heading": "Bảng tiêu chí đánh giá Đại sứ xanh",
+        "criteria": [
+          {
+            "name": "Nhận thức về môi trường và hòa bình",
+            "good": "Chỉ ra được nguyên nhân gây ô nhiễm và hậu quả đau thương của chiến tranh (3đ)",
+            "medium": "Nêu được một số biện pháp bảo vệ môi trường cơ bản (2đ)",
+            "poor": "Nhận thức còn mơ hồ (1đ)"
+          },
+          {
+            "name": "Tính khả thi của giải pháp",
+            "good": "Đề xuất được hành động cụ thể, thiết thực, có thể làm ngay tại trường Tiểu học Trung Nhứt (4đ)",
+            "medium": "Đề xuất còn chung chung, khó áp dụng vào thực tế (2.5đ)",
+            "poor": "Chưa đưa ra được giải pháp nào (1.5đ)"
+          },
+          {
+            "name": "Sức lan tỏa của thông điệp số",
+            "good": "Tranh vẽ sinh động hoặc giọng đọc truyền cảm, tạo được cảm xúc mạnh mẽ cho người xem (3đ)",
+            "medium": "Sản phẩm rõ ràng nhưng chưa thực sự hấp dẫn (2đ)",
+            "poor": "Sản phẩm chưa hoàn thiện (1đ)"
+          }
+        ]
+      },
+      "conclusion": {
+        "heading": "Cùng nhau, chúng ta thay đổi thế giới!",
+        "content": "Tuyệt vời lắm, các Đại sứ nhí lớp 5A2! Một hành động nhỏ như nhặt chiếc lá rơi bỏ vào thùng rác, một lời nói dịu dàng đoàn kết với bạn bè cũng chính là các em đang gieo mầm cho một thế giới xanh hơn và bình yên hơn. Hãy mang tinh thần này lan toả đến gia đình, người thân và cộng đồng xung quanh. Thầy cô luôn tự hào về những đóng góp ý nghĩa của các em!",
+        "badge": "Huy hiệu: Đại Sứ Trái Đất Xanh & Hoà Bình"
+      }
+    }
+  }
+]
