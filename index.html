@@ -280,7 +280,7 @@
             👥 Danh sách Nhóm học sinh
           </button>
           <button type="button" class="admin-tab-btn text-slate-500 pb-2 px-3 text-sm" onclick="switchAdminTab('security')">
-            🔐 Đổi PIN & Sao lưu dữ liệu
+            💾 Sao lưu & Khôi phục dữ liệu
           </button>
         </div>
 
@@ -447,22 +447,12 @@
           </form>
         </div>
 
-        <!-- TAB 4: BẢO MẬT & SAO LƯU DỮ LIỆU -->
+        <!-- TAB 4: SAO LƯU & KHÔI PHỤC DỮ LIỆU -->
         <div id="admin-tab-security" class="hidden space-y-4">
           <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
-            <h5 class="font-bold text-slate-800 text-sm">1. Đổi mã PIN Giáo viên:</h5>
-            <p class="text-xs text-slate-500">Mã PIN mới sẽ được lưu vào hệ thống bảo mật, chỉ có Thầy/Cô biết:</p>
-            <div class="flex gap-2 max-w-sm">
-              <input type="text" id="cfg-new-pin" placeholder="Nhập mã PIN mới..." class="p-2.5 rounded-lg border border-slate-300 text-sm font-bold flex-1">
-              <button type="button" onclick="changeAdminPin()" class="btn btn-primary text-xs" style="background-color: #2E4057;">
-                Đổi PIN
-              </button>
-            </div>
-          </div>
-
-          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
-            <h5 class="font-bold text-slate-800 text-sm">2. Sao lưu và Đồng bộ:</h5>
-            <div class="flex flex-wrap gap-2">
+            <h5 class="font-bold text-slate-800 text-sm">Sao lưu và Khôi phục dữ liệu:</h5>
+            <p class="text-xs text-slate-500">Thầy/Cô có thể tải file sao lưu về máy để lưu trữ hoặc khôi phục lại dữ liệu gốc:</p>
+            <div class="flex flex-wrap gap-2 pt-2">
               <button type="button" onclick="exportTopicsJson()" class="btn btn-secondary text-xs">
                 📥 Tải file sao lưu topics.json
               </button>

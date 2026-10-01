@@ -1217,18 +1217,7 @@ function saveGroupsConfig(e) {
   renderApp();
 }
 
-// Tab 4: Đổi mã PIN & Sao lưu
-function changeAdminPin() {
-  const newPin = document.getElementById('cfg-new-pin').value;
-  if (!newPin || newPin.trim().length < 4) {
-    alert('Mã PIN mới phải có ít nhất 4 ký tự!');
-    return;
-  }
-  AppState.siteConfig.adminPin = newPin.trim();
-  localStorage.setItem('webquest_site_config_v1', JSON.stringify(AppState.siteConfig));
-  alert(`✓ ĐỔI MÃ PIN THÀNH CÔNG!\nMã PIN mới của Thầy/Cô là: ${AppState.siteConfig.adminPin}`);
-  document.getElementById('cfg-new-pin').value = '';
-}
+// Tab 4: Sao lưu & Khôi phục dữ liệu
 
 function exportTopicsJson() {
   const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(AppState.topics, null, 2));
