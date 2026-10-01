@@ -322,7 +322,34 @@
             </div>
 
             <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
-              <h5 class="font-bold text-slate-800 text-sm">3. Thông tin Chân trang (Footer):</h5>
+              <h5 class="font-bold text-slate-800 text-sm">3. Khung 4 Thẻ Chỉ số Thống kê nổi bật:</h5>
+              <p class="text-xs text-slate-500">Chỉnh sửa số lượng và dòng chú thích cho từng thẻ thống kê ở trang chủ:</p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                <div class="p-3 bg-white rounded-lg border border-slate-200">
+                  <span class="text-xs font-bold text-slate-500 block mb-1">Thẻ 1:</span>
+                  <input type="text" id="cfg-stat-val-0" placeholder="04" class="w-full p-2 mb-2 rounded border border-slate-300 text-base font-bold text-slate-800" title="Giá trị số">
+                  <input type="text" id="cfg-stat-lbl-0" placeholder="Chủ đề tích hợp" class="w-full p-2 rounded border border-slate-300 text-xs" title="Dòng chú thích">
+                </div>
+                <div class="p-3 bg-white rounded-lg border border-slate-200">
+                  <span class="text-xs font-bold text-slate-500 block mb-1">Thẻ 2:</span>
+                  <input type="text" id="cfg-stat-val-1" placeholder="35" class="w-full p-2 mb-2 rounded border border-slate-300 text-base font-bold text-amber-700" title="Giá trị số">
+                  <input type="text" id="cfg-stat-lbl-1" placeholder="Học sinh 5A2" class="w-full p-2 rounded border border-slate-300 text-xs" title="Dòng chú thích">
+                </div>
+                <div class="p-3 bg-white rounded-lg border border-slate-200">
+                  <span class="text-xs font-bold text-slate-500 block mb-1">Thẻ 3:</span>
+                  <input type="text" id="cfg-stat-val-2" placeholder="100%" class="w-full p-2 mb-2 rounded border border-slate-300 text-base font-bold text-emerald-700" title="Giá trị số">
+                  <input type="text" id="cfg-stat-lbl-2" placeholder="Tài nguyên an toàn" class="w-full p-2 rounded border border-slate-300 text-xs" title="Dòng chú thích">
+                </div>
+                <div class="p-3 bg-white rounded-lg border border-slate-200">
+                  <span class="text-xs font-bold text-slate-500 block mb-1">Thẻ 4:</span>
+                  <input type="text" id="cfg-stat-val-3" placeholder="01 Chạm" class="w-full p-2 mb-2 rounded border border-slate-300 text-base font-bold text-blue-700" title="Giá trị số">
+                  <input type="text" id="cfg-stat-lbl-3" placeholder="Nộp bài Camera & Mic" class="w-full p-2 rounded border border-slate-300 text-xs" title="Dòng chú thích">
+                </div>
+              </div>
+            </div>
+
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
+              <h5 class="font-bold text-slate-800 text-sm">4. Thông tin Chân trang (Footer):</h5>
               <div>
                 <label class="block text-xs font-semibold text-slate-600 mb-1">Tên đơn vị chủ quản (Dòng 1):</label>
                 <input type="text" id="cfg-footer-org" class="w-full p-2.5 rounded-lg border border-slate-300 text-sm">
@@ -339,7 +366,7 @@
 
             <div class="flex justify-end">
               <button type="submit" class="btn btn-primary" style="background-color: #10B981;">
-                💾 Lưu cập nhật Đầu trang & Chân trang
+                💾 Lưu cập nhật Trang chủ & Chân trang
               </button>
             </div>
           </form>

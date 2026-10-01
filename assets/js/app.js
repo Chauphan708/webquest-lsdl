@@ -1022,6 +1022,17 @@ function populateAdminFields() {
   document.getElementById('cfg-hero-tagline').value = cfg.hero.tagline || '';
   document.getElementById('cfg-hero-heading').value = cfg.hero.mainHeading || '';
   document.getElementById('cfg-hero-desc').value = cfg.hero.description || '';
+
+  // Tab 1: 4 Thẻ chỉ số thống kê
+  if (cfg.stats && Array.isArray(cfg.stats)) {
+    cfg.stats.forEach((s, idx) => {
+      const valEl = document.getElementById(`cfg-stat-val-${idx}`);
+      const lblEl = document.getElementById(`cfg-stat-lbl-${idx}`);
+      if (valEl) valEl.value = s.value || '';
+      if (lblEl) lblEl.value = s.label || '';
+    });
+  }
+
   document.getElementById('cfg-footer-org').value = cfg.footer.orgName || '';
   document.getElementById('cfg-footer-info').value = cfg.footer.initiativeInfo || '';
   document.getElementById('cfg-footer-copyright').value = cfg.footer.copyright || '';
@@ -1042,13 +1053,31 @@ function saveGeneralConfig(e) {
   AppState.siteConfig.hero.tagline = document.getElementById('cfg-hero-tagline').value;
   AppState.siteConfig.hero.mainHeading = document.getElementById('cfg-hero-heading').value;
   AppState.siteConfig.hero.description = document.getElementById('cfg-hero-desc').value;
+
+  // Lưu 4 Thẻ chỉ số thống kê
+  const defaultColors = ['text-slate-800', 'text-amber-700', 'text-emerald-700', 'text-blue-700'];
+  if (!AppState.siteConfig.stats) {
+    AppState.siteConfig.stats = [];
+  }
+  for (let i = 0; i < 4; i++) {
+    const valEl = document.getElementById(`cfg-stat-val-${i}`);
+    const lblEl = document.getElementById(`cfg-stat-lbl-${i}`);
+    if (valEl && lblEl) {
+      if (!AppState.siteConfig.stats[i]) {
+        AppState.siteConfig.stats[i] = { color: defaultColors[i] || 'text-slate-800' };
+      }
+      AppState.siteConfig.stats[i].value = valEl.value.trim();
+      AppState.siteConfig.stats[i].label = lblEl.value.trim();
+    }
+  }
+
   AppState.siteConfig.footer.orgName = document.getElementById('cfg-footer-org').value;
   AppState.siteConfig.footer.initiativeInfo = document.getElementById('cfg-footer-info').value;
   AppState.siteConfig.footer.copyright = document.getElementById('cfg-footer-copyright').value;
 
   localStorage.setItem('webquest_site_config_v1', JSON.stringify(AppState.siteConfig));
   applySiteConfigToUI();
-  alert('✓ ĐÃ CẬP NHẬT ĐẦU TRANG & CHÂN TRANG THÀNH CÔNG!');
+  alert('✓ ĐÃ CẬP NHẬT TRANG CHỦ & CHÂN TRANG THÀNH CÔNG!');
 }
 
 // Tab 2: Quản lý Topics
